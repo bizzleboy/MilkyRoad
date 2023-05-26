@@ -1339,6 +1339,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 659675408335623421, guid: 08aa4ab95e56146238635c28f7f3cd69, type: 3}
+      propertyPath: m_Height
+      value: 3.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 659675408335623421, guid: 08aa4ab95e56146238635c28f7f3cd69, type: 3}
+      propertyPath: m_Radius
+      value: 0.62
+      objectReference: {fileID: 0}
     - target: {fileID: 2804683106764887228, guid: 08aa4ab95e56146238635c28f7f3cd69, type: 3}
       propertyPath: m_RootOrder
       value: 10
@@ -2260,7 +2268,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4943212715991827346, guid: a31d3da3e540dbb41bdf936193c18b21, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4943212715991827358, guid: a31d3da3e540dbb41bdf936193c18b21, type: 3}
       propertyPath: m_Name
