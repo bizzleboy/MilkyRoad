@@ -4,21 +4,12 @@ using UnityEngine;
 
 public class PlayerBehavior : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("a");
-        Destroy(gameObject);
+        // Replace "Obstacle" with the tag of your obstacle objects
+        if (collision.gameObject.CompareTag("Obstacle"))
+        {
+            Destroy(gameObject);
+        }
     }
 }
