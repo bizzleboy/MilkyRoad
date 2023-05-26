@@ -2258,6 +2258,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4943212715991827346, guid: a31d3da3e540dbb41bdf936193c18b21, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4943212715991827358, guid: a31d3da3e540dbb41bdf936193c18b21, type: 3}
       propertyPath: m_Name
       value: Scooter
