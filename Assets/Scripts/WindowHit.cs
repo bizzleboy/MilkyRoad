@@ -26,7 +26,7 @@ public class WindowHit : MonoBehaviour
 
     void Delivered()
     {
-        Instantiate(dementorExpelled, transform.position, transform.rotation);
+        //Instantiate(dementorExpelled, transform.position, transform.rotation);
 
         gameObject.SetActive(false);
         Destroy(gameObject, 0.5f);
