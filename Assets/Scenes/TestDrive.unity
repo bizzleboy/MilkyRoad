@@ -410,6 +410,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 659675408335623421, guid: 08aa4ab95e56146238635c28f7f3cd69, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2804683106764887228, guid: 08aa4ab95e56146238635c28f7f3cd69, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -564,6 +568,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 659675408335623421, guid: 08aa4ab95e56146238635c28f7f3cd69, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2804683106764887228, guid: 08aa4ab95e56146238635c28f7f3cd69, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -621,6 +629,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 659675408335623421, guid: 08aa4ab95e56146238635c28f7f3cd69, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2804683106764887228, guid: 08aa4ab95e56146238635c28f7f3cd69, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -676,6 +688,10 @@ PrefabInstance:
     - target: {fileID: 6266666436033182150, guid: 08aa4ab95e56146238635c28f7f3cd69, type: 3}
       propertyPath: m_Name
       value: trash
+      objectReference: {fileID: 0}
+    - target: {fileID: 6266666436033182150, guid: 08aa4ab95e56146238635c28f7f3cd69, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 08aa4ab95e56146238635c28f7f3cd69, type: 3}
@@ -859,6 +875,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 659675408335623421, guid: 08aa4ab95e56146238635c28f7f3cd69, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2804683106764887228, guid: 08aa4ab95e56146238635c28f7f3cd69, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -926,8 +946,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e20d06ea15c140838f8083645b9b4bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  accelerationRate: 3
+  accelerationRate: 4
   maxSpeed: 20
-  minSpeedForTurn: 2
-  turnSpeed: 28
-  gravity: 2
+  minSpeedForTurn: 3
+  turnSpeed: 82
+  gravity: 9.8
