@@ -31,6 +31,7 @@ public class LevelManager : MonoBehaviour
         {
             levelTime += Time.deltaTime;
 
+            SetTimerText();
             SetScoreText();
         }
     }
@@ -69,6 +70,11 @@ public class LevelManager : MonoBehaviour
     private void LoadCurrentLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    private void SetTimerText()
+    {
+        timerText.text = levelTime.ToString("0.00");
     }
 
     private void SetScoreText()

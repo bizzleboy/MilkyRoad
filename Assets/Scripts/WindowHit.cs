@@ -48,7 +48,6 @@ public class WindowHit : MonoBehaviour
         if (count == windowAmount)
         {
             FindObjectOfType<LevelManager>().LevelBeat();
-            Debug.Log("win");
         }
 
         AudioSource.PlayClipAtPoint(successHitSFX, Camera.main.transform.position);
