@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class DestroyObject : MonoBehaviour
 {
-    Rigidbody rb;
+    public float destroyDuration = 2;
+
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
-        rb.AddForce(Vector3.left);
+        Destroy(gameObject, destroyDuration);
     }
 
     // Update is called once per frame

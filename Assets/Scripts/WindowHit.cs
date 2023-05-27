@@ -7,9 +7,15 @@ public class WindowHit : MonoBehaviour
     public AudioClip successHitSFX;
     public GameObject nextTarget;
 
+    public static int count;
+    public static int score;
+
+    public int windowAmount;
+
     // Start is called before the first frame update
     void Start()
     {
+        
     }
 
     // Update is called once per frame
@@ -28,20 +34,24 @@ public class WindowHit : MonoBehaviour
 
     void Delivered()
     {
+
         gameObject.SetActive(false);
 
         if(nextTarget != null) 
         {
-            Debug.Log("Activated");
             nextTarget.SetActive(true);
+        }
+
+        count++;
+        score++;
+
+        if (count == windowAmount)
+        {
+            FindObjectOfType<LevelManager>().LevelBeat();
+            Debug.Log("win");
         }
 
         AudioSource.PlayClipAtPoint(successHitSFX, Camera.main.transform.position);
         Destroy(gameObject);
     }
-
-    // public void StartActiveTarget()
-    // {
-    //     gameObject.SetActive(true);
-    // }
 }
