@@ -9,7 +9,7 @@ public class PlayerBehavior : MonoBehaviour
         // Replace "Obstacle" with the tag of your obstacle objects
         if (collision.gameObject.CompareTag("Obstacle"))
         {
-            Destroy(gameObject);
+            FindObjectOfType<LevelManager>().LevelLost();
         }
     }
 }
