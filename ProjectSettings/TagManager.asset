@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Obstacle
   - Window
+  - Pizza
   layers:
   - Default
   - TransparentFX

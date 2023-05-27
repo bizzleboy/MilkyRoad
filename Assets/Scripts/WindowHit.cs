@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class WindowHit : MonoBehaviour
 {
+    public AudioClip successHitSFX;
+    public GameObject nextTarget;
+
     // Start is called before the first frame update
     void Start()
     {
-        
     }
 
     // Update is called once per frame
@@ -26,9 +28,20 @@ public class WindowHit : MonoBehaviour
 
     void Delivered()
     {
-        //Instantiate(dementorExpelled, transform.position, transform.rotation);
-
         gameObject.SetActive(false);
-        Destroy(gameObject, 0.5f);
+
+        if(nextTarget != null) 
+        {
+            Debug.Log("Activated");
+            nextTarget.SetActive(true);
+        }
+
+        AudioSource.PlayClipAtPoint(successHitSFX, Camera.main.transform.position);
+        Destroy(gameObject);
     }
+
+    // public void StartActiveTarget()
+    // {
+    //     gameObject.SetActive(true);
+    // }
 }
