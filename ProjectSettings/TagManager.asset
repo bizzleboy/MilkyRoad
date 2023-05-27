@@ -8,6 +8,7 @@ TagManager:
   - Window
   - Pizza
   - ProjecttileParent
+  - Ground
   layers:
   - Default
   - TransparentFX
