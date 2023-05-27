@@ -53,14 +53,15 @@ public class ScooterController : MonoBehaviour
         {
             speed = 0;
         }
-
     }
+
 
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
         if (hit.gameObject.CompareTag("RampEnd")) // tag the ramp end with "RampEnd"
         {
-            moveDirection.y = speed * rampForceMultiplier; // adjust the launch force
+            Debug.Log("wee");
+            moveDirection.y = ((int)(speed/2.5)) * rampForceMultiplier; // adjust the launch force
         }
     }
 }

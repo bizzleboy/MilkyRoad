@@ -4129,7 +4129,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3292326452182237281, guid: dc5f10e4f14e8427c91ec1eed03f72c5, type: 3}
       propertyPath: rampForceMultiplier
-      value: 0.77
+      value: 0.45
       objectReference: {fileID: 0}
     - target: {fileID: 3292326452182237282, guid: dc5f10e4f14e8427c91ec1eed03f72c5, type: 3}
       propertyPath: m_Radius
