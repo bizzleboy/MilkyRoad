@@ -8,7 +8,11 @@ TagManager:
   - Window
   - Pizza
   - ProjecttileParent
+<<<<<<< Updated upstream
   - Ground
+=======
+  - RampEnd
+>>>>>>> Stashed changes
   layers:
   - Default
   - TransparentFX
