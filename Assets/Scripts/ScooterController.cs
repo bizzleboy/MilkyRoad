@@ -19,36 +19,44 @@ public class ScooterController : MonoBehaviour
 
     private void Update()
     {
-        float verticalInput = Input.GetAxis("Vertical");  // Assume Vertical axis for acceleration
-        float horizontalInput = Input.GetAxis("Horizontal"); // Assume Horizontal axis for turning
-
-        // Calculate acceleration and deceleration
-        if (verticalInput != 0)
+        if (!LevelManager.isGameOver)
         {
-            speed = Mathf.Clamp(speed + verticalInput * accelerationRate * Time.deltaTime, -maxSpeed, maxSpeed);
+            float verticalInput = Input.GetAxis("Vertical");  // Assume Vertical axis for acceleration
+            float horizontalInput = Input.GetAxis("Horizontal"); // Assume Horizontal axis for turning
+
+            // Calculate acceleration and deceleration
+            if (verticalInput != 0)
+            {
+                speed = Mathf.Clamp(speed + verticalInput * accelerationRate * Time.deltaTime, -maxSpeed, maxSpeed);
+            }
+            else
+            {
+                // decelerate smoothly when no input is given
+                speed = Mathf.Lerp(speed, 0, Time.deltaTime * accelerationRate);
+            }
+
+            // Apply turning only if speed is greater than the minimum
+            if (Mathf.Abs(speed) > minSpeedForTurn)
+            {
+                transform.Rotate(0, horizontalInput * turnSpeed * Time.deltaTime, 0);
+            }
+
+            // Check if character controller is grounded
+            if (characterController.isGrounded)
+            {
+                moveDirection = transform.forward * speed;
+            }
+
+            // Apply gravity
+            moveDirection.y -= gravity * Time.deltaTime;
+
+            // Apply the calculated movement
+            characterController.Move(moveDirection * Time.deltaTime);
         }
         else
         {
-            // decelerate smoothly when no input is given
-            speed = Mathf.Lerp(speed, 0, Time.deltaTime * accelerationRate);
+            speed = 0;
         }
-
-        // Apply turning only if speed is greater than the minimum
-        if (Mathf.Abs(speed) > minSpeedForTurn)
-        {
-            transform.Rotate(0, horizontalInput * turnSpeed * Time.deltaTime, 0);
-        }
-
-        // Check if character controller is grounded
-        if (characterController.isGrounded)
-        {
-            moveDirection = transform.forward * speed;
-        }
-
-        // Apply gravity
-        moveDirection.y -= gravity * Time.deltaTime;
-
-        // Apply the calculated movement
-        characterController.Move(moveDirection * Time.deltaTime);
+       
     }
 }
