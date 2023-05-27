@@ -576,10 +576,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1092999287559211101, guid: a5ac24790c5c14a41b198d4ed210eaa0, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 408500d8a320c7b4b993a76c2498de30, type: 2}
     - target: {fileID: 5041731963389412529, guid: a5ac24790c5c14a41b198d4ed210eaa0, type: 3}
       propertyPath: m_Name
       value: pepper3
       objectReference: {fileID: 0}
+    - target: {fileID: 5319667077311947597, guid: a5ac24790c5c14a41b198d4ed210eaa0, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 408500d8a320c7b4b993a76c2498de30, type: 2}
     - target: {fileID: 5673414229151931915, guid: a5ac24790c5c14a41b198d4ed210eaa0, type: 3}
       propertyPath: m_RootOrder
       value: 4
