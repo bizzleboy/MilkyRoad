@@ -1460,8 +1460,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelTime: 0
-  gameOverSFX: {fileID: 0}
-  gameWonSFX: {fileID: 0}
+  gameOverSFX: {fileID: 8300000, guid: b5b6d5dbf5057e74d940d473d551949a, type: 3}
+  gameWonSFX: {fileID: 8300000, guid: ad0505bdfa99608489ef0a9c1475cff7, type: 3}
   nextLevel: ShootingScene
   gameText: {fileID: 1585527319}
   timerText: {fileID: 108505483}
