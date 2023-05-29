@@ -424,7 +424,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 256a389ee320f8c449737e00ee7258cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectPrefab: {fileID: 1103763516456273892, guid: 71be2b2019390c040a4e215ad1964c51, type: 3}
+  projectPrefab: {fileID: 1103763516456273892, guid: 32e04d3234f685547a5242bd4b3f2bd1, type: 3}
   speed: 60
   throwPizzaSFX: {fileID: 8300000, guid: f96dd7b18d5d2424691c71b7dc1912d7, type: 3}
   reticleImage: {fileID: 1747411944}

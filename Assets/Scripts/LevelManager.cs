@@ -18,10 +18,13 @@ public class LevelManager : MonoBehaviour
     public Text timerText;
     public Text scoreText;
 
+    int score;
+
     // Start is called before the first frame update
     void Start()
     {
         isGameOver = false;
+        score = 0;
         levelTime = 0;
         SetTimerText();
     }
@@ -36,6 +39,11 @@ public class LevelManager : MonoBehaviour
             SetTimerText();
             SetScoreText();
         }
+    }
+
+    public void AddScore(int scoreAmount)
+    {
+        score += scoreAmount;
     }
 
     public void LevelBeat()
@@ -81,6 +89,8 @@ public class LevelManager : MonoBehaviour
 
     private void SetScoreText()
     {
-        scoreText.text = WindowHit.score.ToString();
+        scoreText.text = score.ToString();
     }
+
+    
 }
