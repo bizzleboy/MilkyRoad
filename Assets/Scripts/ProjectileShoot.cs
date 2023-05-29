@@ -1,18 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ProjectileShoot : MonoBehaviour
 {
     public GameObject projectPrefab;
-    public float speed = 20;
+    public float speed = 60;
 
     public AudioClip throwPizzaSFX;
+
+    public Image reticleImage;
+    public Color reticleDementorcolor;
+
+    Color originalReticleColor;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        originalReticleColor = reticleImage.color;
     }
 
     // Update is called once per frame
@@ -33,4 +39,33 @@ public class ProjectileShoot : MonoBehaviour
         }
     }
 
+    private void FixedUpdate()
+    {
+        ReticleEffect();
+    }
+
+    void ReticleEffect()
+    {
+        RaycastHit hit;
+
+        if (Physics.Raycast(transform.position, transform.forward, out hit, Mathf.Infinity))
+        {
+            if (hit.collider.CompareTag("Window"))
+            {
+                reticleImage.color = Color.Lerp(reticleImage.color,
+                    reticleDementorcolor, Time.deltaTime * 2);
+
+                reticleImage.transform.localScale = Vector3.Lerp(reticleImage.transform.localScale,
+                    new Vector3(0.7f, 0.7f, 1), Time.deltaTime * 2);
+            }
+        }
+        else
+        {
+            reticleImage.color = Color.Lerp(reticleImage.color,
+                    originalReticleColor, Time.deltaTime * 2);
+
+            reticleImage.transform.localScale = Vector3.Lerp(reticleImage.transform.localScale,
+                Vector3.one, Time.deltaTime * 2);
+        }
+    }
 }
