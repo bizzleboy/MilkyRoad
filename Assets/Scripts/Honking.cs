@@ -15,11 +15,6 @@ public class Honking : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-    }
-
-    private void FixedUpdate()
-    {
         if (Input.GetKeyDown(KeyCode.Space))
         {
             AudioSource.PlayClipAtPoint(honkSFX, transform.position);
