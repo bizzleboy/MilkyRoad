@@ -52,8 +52,8 @@ public class LevelManager : MonoBehaviour
         gameText.text = "YOU WIN!";
         SetScoreText();
 
-        //Camera.main.GetComponent<AudioSource>().pitch = 2;
-        //AudioSource.PlayClipAtPoint(gameWonSFX, Camera.main.transform.position);
+        Camera.main.GetComponent<AudioSource>().pitch = 2;
+        AudioSource.PlayClipAtPoint(gameWonSFX, Camera.main.transform.position);
 
         if (!string.IsNullOrEmpty(nextLevel))
         {
@@ -66,8 +66,8 @@ public class LevelManager : MonoBehaviour
         isGameOver = true;
         gameText.text = "GAME OVER!";
 
-        //Camera.main.GetComponent<AudioSource>().pitch = 1;
-        //AudioSource.PlayClipAtPoint(gameOverSFX, Camera.main.transform.position);
+        Camera.main.GetComponent<AudioSource>().pitch = 1;
+        AudioSource.PlayClipAtPoint(gameOverSFX, Camera.main.transform.position);
 
         Invoke("LoadCurrentLevel", 2);
     }
