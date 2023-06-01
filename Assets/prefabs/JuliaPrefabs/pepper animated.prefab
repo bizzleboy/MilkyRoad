@@ -596,6 +596,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4058661323062721699}
   - component: {fileID: 4058661323062721696}
+  - component: {fileID: 651486899}
   m_Layer: 0
   m_Name: pepper animated
   m_TagString: Untagged
@@ -641,6 +642,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &651486899
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3681853587575891481}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e68392cd29b44dd29de59e18446d2b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3892172321060142619
 GameObject:
   m_ObjectHideFlags: 0
