@@ -11,7 +11,7 @@ public class ProjectileShoot : MonoBehaviour
     public AudioClip throwPizzaSFX;
 
     public Image reticleImage;
-    public Color reticleDementorcolor;
+    public Color reticleWindowcolor;
 
     Color originalReticleColor;
 
@@ -53,7 +53,7 @@ public class ProjectileShoot : MonoBehaviour
             if (hit.collider.CompareTag("Window"))
             {
                 reticleImage.color = Color.Lerp(reticleImage.color,
-                    reticleDementorcolor, Time.deltaTime * 2);
+                    reticleWindowcolor, Time.deltaTime * 2);
 
                 reticleImage.transform.localScale = Vector3.Lerp(reticleImage.transform.localScale,
                     new Vector3(0.7f, 0.7f, 1), Time.deltaTime * 2);

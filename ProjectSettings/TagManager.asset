@@ -10,7 +10,7 @@ TagManager:
   - Ground
   - ProjecttileParent
   - Window
-  - Side
+  - SceneChange
   layers:
   - Default
   - TransparentFX

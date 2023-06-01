@@ -40,6 +40,8 @@ public class PlayerBehavior : MonoBehaviour
     {
         GetComponent<ScooterController>().enabled = false;
         GameObject.FindGameObjectWithTag("MainCamera").GetComponent<MouseLook>().moveToFPS();
+        GameObject.FindGameObjectWithTag("MainCamera").GetComponent<ProjectileShoot>().enabled = true;
+
         transform.GetChild(1).gameObject.SetActive(false);
         fpsMode = true;
     }
