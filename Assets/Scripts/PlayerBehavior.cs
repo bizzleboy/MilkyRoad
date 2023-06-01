@@ -5,11 +5,13 @@ using UnityEngine;
 public class PlayerBehavior : MonoBehaviour
 {
     public Transform ground;
+    public static bool fpsMode;
 
     // Start is called before the first frame update
     void Start()
     {
         ground = GameObject.FindGameObjectWithTag("Ground").transform;
+        fpsMode = false;
     }
 
     // Update is called once per frame
@@ -32,5 +34,13 @@ public class PlayerBehavior : MonoBehaviour
         {
             FindObjectOfType<LevelManager>().LevelLost();
         }
+    }
+
+    public void ChangeToFPS()
+    {
+        GetComponent<ScooterController>().enabled = false;
+        GameObject.FindGameObjectWithTag("MainCamera").GetComponent<MouseLook>().moveToFPS();
+        transform.GetChild(1).gameObject.SetActive(false);
+        fpsMode = true;
     }
 }

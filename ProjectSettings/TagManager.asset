@@ -3,7 +3,14 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - RampEnd
+  - Obstacle
+  - Pizza
+  - Ground
+  - ProjecttileParent
+  - Window
+  - Side
   layers:
   - Default
   - TransparentFX

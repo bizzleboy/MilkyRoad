@@ -118,7 +118,6 @@ public class ScooterController : MonoBehaviour
     {
         if (hit.gameObject.CompareTag("RampEnd"))
         {
-            Debug.Log("wee");
             moveDirection.y = ((int)(speed / 2.5)) * rampForceMultiplier;
         }
     }

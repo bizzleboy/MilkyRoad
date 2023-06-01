@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 3976373253486446764}
   - component: {fileID: 524370954776903982}
   m_Layer: 0
-  m_Name: Scooter-3rd
+  m_Name: Scooter3rd
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -110,12 +110,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e20d06ea15c140838f8083645b9b4bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerModel: {fileID: 0}
   accelerationRate: 3
   maxSpeed: 20
   minSpeedForTurn: 0.5
   turnSpeed: 145
   gravity: 9.8
+  driftStrength: 20
+  driftSlowDownFactor: 0.8
   rampForceMultiplier: 5
+  driftBoostTime: 3
+  speedBoostAmount: 5
+  speedBoostDuration: 2
 --- !u!114 &524370954776903982
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -128,6 +134,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1976c7370e69a394fb53868d24512557, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  honkSFX: {fileID: 0}
 --- !u!1 &3976373254867212196
 GameObject:
   m_ObjectHideFlags: 0
