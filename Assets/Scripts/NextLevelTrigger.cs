@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class NextLevelTrigger : MonoBehaviour
 {
+    public GameObject sceneChange;
+    public GameObject crosshair;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,7 +23,11 @@ public class NextLevelTrigger : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            FindObjectOfType<LevelManager>().LevelBeat();
+            other.GetComponent<PlayerBehavior>().ChangeToFPS();
+
+            crosshair.SetActive(true);
+            sceneChange.SetActive(true);
+            GameObject.FindGameObjectWithTag("SceneChange").GetComponent<DeliveryManagement>().ActivateLight();
         }
     }
 }

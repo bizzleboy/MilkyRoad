@@ -21,7 +21,7 @@ public class MouseLook : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!LevelManager.isGameOver)
+        if (PlayerBehavior.fpsMode && !LevelManager.isGameOver)
         {
             float moveX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
             float moveY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
@@ -35,6 +35,11 @@ public class MouseLook : MonoBehaviour
             pitch = Mathf.Clamp(pitch, -90f, 90f);
             transform.localRotation = Quaternion.Euler(pitch, 0, 0);
         }
-        
+    }
+
+    public void moveToFPS()
+    {
+        transform.localPosition = new Vector3(0, 0.264f, 0);
+        transform.localRotation = Quaternion.Euler(new Vector3(0, 0, 0));
     }
 }

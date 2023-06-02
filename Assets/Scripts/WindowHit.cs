@@ -8,7 +8,7 @@ public class WindowHit : MonoBehaviour
     public GameObject nextTarget;
 
     public static int count;
-    public static int score;
+    public int score = 1;
 
     public int windowAmount;
 
@@ -43,7 +43,7 @@ public class WindowHit : MonoBehaviour
         }
 
         count++;
-        score++;
+        FindObjectOfType<LevelManager>().AddScore(score);
 
         if (count == windowAmount)
         {

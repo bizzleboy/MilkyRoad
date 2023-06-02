@@ -18,10 +18,13 @@ public class LevelManager : MonoBehaviour
     public Text timerText;
     public Text scoreText;
 
+    int score;
+
     // Start is called before the first frame update
     void Start()
     {
         isGameOver = false;
+        score = 0;
         levelTime = 0;
         SetTimerText();
     }
@@ -38,14 +41,19 @@ public class LevelManager : MonoBehaviour
         }
     }
 
+    public void AddScore(int scoreAmount)
+    {
+        score += scoreAmount;
+    }
+
     public void LevelBeat()
     {
         isGameOver = true;
         gameText.text = "YOU WIN!";
         SetScoreText();
 
-        //Camera.main.GetComponent<AudioSource>().pitch = 2;
-        //AudioSource.PlayClipAtPoint(gameWonSFX, Camera.main.transform.position);
+        Camera.main.GetComponent<AudioSource>().pitch = 2;
+        AudioSource.PlayClipAtPoint(gameWonSFX, Camera.main.transform.position);
 
         if (!string.IsNullOrEmpty(nextLevel))
         {
@@ -58,8 +66,8 @@ public class LevelManager : MonoBehaviour
         isGameOver = true;
         gameText.text = "GAME OVER!";
 
-        //Camera.main.GetComponent<AudioSource>().pitch = 1;
-        //AudioSource.PlayClipAtPoint(gameOverSFX, Camera.main.transform.position);
+        Camera.main.GetComponent<AudioSource>().pitch = 1;
+        AudioSource.PlayClipAtPoint(gameOverSFX, Camera.main.transform.position);
 
         Invoke("LoadCurrentLevel", 2);
     }
@@ -81,6 +89,8 @@ public class LevelManager : MonoBehaviour
 
     private void SetScoreText()
     {
-        scoreText.text = WindowHit.score.ToString();
+        scoreText.text = score.ToString();
     }
+
+    
 }
