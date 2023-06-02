@@ -5,6 +5,7 @@ using UnityEngine;
 public class PizzaBehavior : MonoBehaviour
 {
     public int score = 1;
+    public AudioClip pickupSFX;
 
     // Start is called before the first frame update
     void Start()
@@ -22,6 +23,7 @@ public class PizzaBehavior : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            AudioSource.PlayClipAtPoint(pickupSFX, Camera.main.gameObject.transform.position);
             FindObjectOfType<LevelManager>().AddScore(score);
             Destroy(gameObject);
         }
