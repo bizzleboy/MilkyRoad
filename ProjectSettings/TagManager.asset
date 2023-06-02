@@ -11,6 +11,7 @@ TagManager:
   - ProjecttileParent
   - Window
   - SceneChange
+  - fpsCamera
   layers:
   - Default
   - TransparentFX
