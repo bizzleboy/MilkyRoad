@@ -9194,11 +9194,6 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 61ac7ef876e9542a786977e6e54ba042, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 47e679cbed6a2d34285382aaeb83a951, type: 3}
---- !u!1 &2011293380 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3681853587575891481, guid: 53e17525c82d5a0489b8a517ad004fc4, type: 3}
-  m_PrefabInstance: {fileID: 2093754838}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2019985368
 GameObject:
   m_ObjectHideFlags: 0
@@ -10151,7 +10146,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e20d06ea15c140838f8083645b9b4bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerModel: {fileID: 2011293380}
+  playerModel: {fileID: 0}
   accelerationRate: 5
   maxSpeed: 20
   minSpeedForTurn: 0.5
@@ -10463,7 +10458,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4733149171772517055, guid: 3bed8f1bfa42b4b338532e8577c1df11, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 9.85
+      value: 3.7858777
       objectReference: {fileID: 0}
     - target: {fileID: 4733149171772517055, guid: 3bed8f1bfa42b4b338532e8577c1df11, type: 3}
       propertyPath: m_LocalPosition.y
@@ -10512,6 +10507,6 @@ PrefabInstance:
     - target: {fileID: 8865862367937063317, guid: 3bed8f1bfa42b4b338532e8577c1df11, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: e2717610470d04c3b9ef3271462a473c, type: 2}
+      objectReference: {fileID: 2100000, guid: bf2b3944fb74241eebb372cbc3e92f98, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3bed8f1bfa42b4b338532e8577c1df11, type: 3}
