@@ -5,7 +5,7 @@ using UnityEngine;
 public class MouseLook : MonoBehaviour
 {
     Transform playerBody;
-    public float mouseSensitivity = 100;
+    public float mouseSensitivity = 50;
 
     float pitch = 0;
 
@@ -21,16 +21,25 @@ public class MouseLook : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float moveX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
-        float moveY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
+        if (PlayerBehavior.fpsMode && !LevelManager.isGameOver)
+        {
+            float moveX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
+            float moveY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
 
-        //yaw
-        playerBody.Rotate(moveX * Vector3.up);
+            //yaw
+            playerBody.Rotate(moveX * Vector3.up);
 
-        //pitch
-        pitch -= moveY;
+            //pitch
+            pitch -= moveY;
 
-        pitch = Mathf.Clamp(pitch, -90f, 90f);
-        transform.localRotation = Quaternion.Euler(pitch, 0, 0);
+            pitch = Mathf.Clamp(pitch, -90f, 90f);
+            transform.localRotation = Quaternion.Euler(pitch, 0, 0);
+        }
+    }
+
+    public void moveToFPS()
+    {
+        transform.localPosition = new Vector3(0, 0.264f, 0);
+        transform.localRotation = Quaternion.Euler(new Vector3(0, 0, 0));
     }
 }
