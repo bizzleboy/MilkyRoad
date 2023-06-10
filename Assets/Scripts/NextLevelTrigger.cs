@@ -7,18 +7,6 @@ public class NextLevelTrigger : MonoBehaviour
     public GameObject sceneChange;
     public GameObject crosshair;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
