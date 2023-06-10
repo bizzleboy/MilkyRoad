@@ -50,7 +50,7 @@ public class PlayerBehavior : MonoBehaviour
         fpsMode = true;
     }
 
-    void PlayerDies()
+    public void PlayerDies()
     {
         animate.SetTrigger("pepperDies");
     }
