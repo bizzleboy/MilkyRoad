@@ -13,9 +13,10 @@ public class Abilities : MonoBehaviour
     bool lightOn;
     float lightRange;
 
-    float fieldOfView = 45f;
+    float fieldOfView = 90f;
+    bool lightHit;
     float timer;
-    float stopTime;
+    float stopTime = 2f;
 
     private void Start()
     {
@@ -42,7 +43,24 @@ public class Abilities : MonoBehaviour
 
         if (lightOn)
         {
+            if (Vector3.Distance(lights.transform.position, enemy.transform.position) <= lightRange)
+            {
+                RatChaser.lightHit = true;
+                lightHit = true;
+                timer = 0;
+            }
+        }
+
+        if (lightHit)
+        {
             timer += Time.deltaTime;
+        }
+
+        if (timer >= stopTime)
+        {
+            RatChaser.lightHit = false;
+            timer = 0;
+            lightOn = false;
         }
     }
 
@@ -57,40 +75,6 @@ public class Abilities : MonoBehaviour
         {
             lights.SetActive(true);
             lightOn = !lightOn;
-        }
-    }
-
-    void StopEnemy()
-    {
-        
-    }
-
-    
-    bool IsEnemyInClearFOV()
-    {
-        RaycastHit hit;
-        Vector3 directionPlayer = lights.transform.position - enemy.position;
-
-        if (Vector3.Angle(directionPlayer, enemy.forward) <= fieldOfView)
-        {
-            if (Physics.Raycast(enemy.position, directionPlayer, out hit, lightRange))
-            {
-                if (hit.collider.CompareTag("Player"))
-                {
-                    print("Player in sight");
-                    return true;
-                }
-
-                return false;
-            }
-            else
-            {
-                return false;
-            }
-        }
-        else
-        {
-            return false;
         }
     }
 }

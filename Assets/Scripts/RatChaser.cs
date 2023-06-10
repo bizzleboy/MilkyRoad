@@ -10,6 +10,7 @@ public class RatChaser : MonoBehaviour
         Patrol,
         Chase,
         Attack,
+        Hit,
         Dead
     }
 
@@ -27,11 +28,12 @@ public class RatChaser : MonoBehaviour
 
     int currentDestinationIndex = 0;
 
-    bool lightHit;
+    public static bool lightHit;
 
     // Start is called before the first frame update
     void Start()
     {
+        lightHit = false;
         wanderPoints = GameObject.FindGameObjectsWithTag("WanderPoint");
         //anim = GetComponent<Animator>();
         player = GameObject.FindGameObjectWithTag("Player");
@@ -44,24 +46,32 @@ public class RatChaser : MonoBehaviour
     {
         distanceToPlayer = Vector3.Distance(transform.position, player.transform.position);
 
-
-        switch (currentState)
+        if (!lightHit)
         {
-            case FSMStates.Idle:
-                UpdateIdleState();
-                break;
-            case FSMStates.Patrol:
-                UpdatePatrolState();
-                break;
-            case FSMStates.Chase:
-                UpdateChaseState();
-                break;
-            case FSMStates.Attack:
-                UpdateAttackState();
-                break;
-            case FSMStates.Dead:
-                UpdateDeadState();
-                break;
+            switch (currentState)
+            {
+                case FSMStates.Hit:
+                    UpdateHitState();
+                    break;
+                case FSMStates.Patrol:
+                    UpdatePatrolState();
+                    break;
+                case FSMStates.Chase:
+                    UpdateChaseState();
+                    break;
+                case FSMStates.Attack:
+                    UpdateAttackState();
+                    break;
+                case FSMStates.Dead:
+                    UpdateDeadState();
+                    break;
+            }
+        }
+        else
+        {
+            currentState = FSMStates.Hit;
+            enemySpeed = 0;
+            //anim.SetInteger("animState", 0);
         }
 
     }
@@ -72,15 +82,16 @@ public class RatChaser : MonoBehaviour
         FindNextPoint();
     }
 
-    void UpdateIdleState()
+    void UpdateHitState()
     {
-        //anim.SetInteger("animState", 0);
+        print("Hit!");
         currentState = FSMStates.Patrol;
     }
 
     void UpdatePatrolState()
     {
         print("Patrolling!");
+        enemySpeed = 5;
         //anim.SetInteger("animState", 1);
 
         if (Vector3.Distance(transform.position, nextDestination) < 1)

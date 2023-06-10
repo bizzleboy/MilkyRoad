@@ -12,6 +12,7 @@ TagManager:
   - Window
   - SceneChange
   - WanderPoint
+  - StandRat
   layers:
   - Default
   - TransparentFX
