@@ -11,7 +11,7 @@ public class ScooterController : MonoBehaviour
     public float driftStrength = 20f;
     public float driftSlowDownFactor = 0.8f; // Represents how much to slow down when drifting. 0.8 means 80% of current speed.
 
-    public float rampForceMultiplier = 5f;
+
 
     public float driftBoostTime = 3f;
     public float speedBoostAmount = 5f;
@@ -114,11 +114,15 @@ public class ScooterController : MonoBehaviour
         }
     }
 
-    private void OnControllerColliderHit(ControllerColliderHit hit)
+    public void LaunchUpward(float power)
     {
-        if (hit.gameObject.CompareTag("RampEnd"))
+        if (characterController.isGrounded)
         {
-            moveDirection.y = ((int)(speed / 2.5)) * rampForceMultiplier;
+            moveDirection.y += power;
+            characterController.Move(moveDirection * Time.deltaTime);
         }
     }
+
+
+
 }
