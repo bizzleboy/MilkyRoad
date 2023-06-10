@@ -24,18 +24,21 @@ public class ProjectileShoot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Fire1"))
+        if (PlayerBehavior.fpsMode)
         {
-            GameObject projectile = Instantiate(projectPrefab,
-                transform.position + transform.forward, transform.rotation);
+            if (Input.GetButtonDown("Fire1"))
+            {
+                GameObject projectile = Instantiate(projectPrefab,
+                    transform.position + transform.forward, transform.rotation);
 
-            Rigidbody rb = projectile.GetComponent<Rigidbody>();
+                Rigidbody rb = projectile.GetComponent<Rigidbody>();
 
-            rb.AddForce(transform.forward * speed, ForceMode.VelocityChange);
+                rb.AddForce(transform.forward * speed, ForceMode.VelocityChange);
 
-            projectile.transform.SetParent(GameObject.FindGameObjectWithTag("ProjecttileParent").transform);
+                projectile.transform.SetParent(GameObject.FindGameObjectWithTag("ProjecttileParent").transform);
 
-            AudioSource.PlayClipAtPoint(throwPizzaSFX, transform.position);
+                AudioSource.PlayClipAtPoint(throwPizzaSFX, transform.position);
+            }
         }
     }
 

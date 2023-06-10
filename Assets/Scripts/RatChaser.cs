@@ -27,6 +27,8 @@ public class RatChaser : MonoBehaviour
 
     int currentDestinationIndex = 0;
 
+    bool lightHit;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -42,8 +44,12 @@ public class RatChaser : MonoBehaviour
     {
         distanceToPlayer = Vector3.Distance(transform.position, player.transform.position);
 
+
         switch (currentState)
         {
+            case FSMStates.Idle:
+                UpdateIdleState();
+                break;
             case FSMStates.Patrol:
                 UpdatePatrolState();
                 break;
@@ -64,6 +70,12 @@ public class RatChaser : MonoBehaviour
     {
         currentState = FSMStates.Patrol;
         FindNextPoint();
+    }
+
+    void UpdateIdleState()
+    {
+        //anim.SetInteger("animState", 0);
+        currentState = FSMStates.Patrol;
     }
 
     void UpdatePatrolState()
@@ -148,6 +160,11 @@ public class RatChaser : MonoBehaviour
         directionTarget.y = 0;
         Quaternion lookRotation = Quaternion.LookRotation(directionTarget);
         transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, 10 * Time.deltaTime);
+    }
+
+    public void LightHit(bool hit)
+    {
+        lightHit = hit;
     }
 
     private void OnDrawGizmos()
