@@ -112,6 +112,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   score: 1
+  pickupSFX: {fileID: 8300000, guid: 62ad9fb8f8e7de742960c386e935f130, type: 3}
 --- !u!1001 &1458517913876999006
 PrefabInstance:
   m_ObjectHideFlags: 0

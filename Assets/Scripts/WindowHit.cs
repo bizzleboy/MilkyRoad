@@ -12,16 +12,15 @@ public class WindowHit : MonoBehaviour
 
     public int windowAmount;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public bool hasBlocker = false;
+    public GameObject blocker;
 
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        
+        if (hasBlocker)
+        {
+            blocker.SetActive(true);
+        }
     }
 
     private void OnTriggerEnter(Collider other)

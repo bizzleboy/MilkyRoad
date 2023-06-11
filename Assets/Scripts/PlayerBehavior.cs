@@ -12,9 +12,9 @@ public class PlayerBehavior : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        fpsMode = false;
         ground = GameObject.FindGameObjectWithTag("Ground").transform;
         animate = transform.GetChild(1).GetComponent<Animator>();
-        fpsMode = false;
     }
 
     // Update is called once per frame
@@ -50,7 +50,7 @@ public class PlayerBehavior : MonoBehaviour
         fpsMode = true;
     }
 
-    void PlayerDies()
+    public void PlayerDies()
     {
         animate.SetTrigger("pepperDies");
     }
