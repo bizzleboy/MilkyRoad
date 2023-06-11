@@ -4199,6 +4199,22 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.06
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &1226304946
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1226304942}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!4 &1226577984 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 311777728307824835, guid: 71be2b2019390c040a4e215ad1964c51, type: 3}
@@ -4289,7 +4305,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1245636065
 Transform:
   m_ObjectHideFlags: 0
@@ -6814,13 +6830,15 @@ GameObject:
   m_Component:
   - component: {fileID: 1837409571}
   - component: {fileID: 1837409572}
+  - component: {fileID: 1837409574}
+  - component: {fileID: 1837409573}
   m_Layer: 0
   m_Name: Spot Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1837409571
 Transform:
   m_ObjectHideFlags: 0
@@ -6849,8 +6867,8 @@ Light:
   m_Shape: 0
   m_Color: {r: 0.34042364, g: 0.56794417, b: 0.9622642, a: 1}
   m_Intensity: 9.96
-  m_Range: 1
-  m_SpotAngle: 62
+  m_Range: 2.5
+  m_SpotAngle: 49.54
   m_InnerSpotAngle: 6
   m_CookieSize: 10
   m_Shadows:
@@ -6898,6 +6916,32 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &1837409573
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1837409570}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d8e1ccded1503a41a4b192c156e4a36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!136 &1837409574
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1837409570}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.8
+  m_Height: 2.93
+  m_Direction: 2
+  m_Center: {x: 0, y: 0, z: 1.59}
 --- !u!1 &1847474746
 GameObject:
   m_ObjectHideFlags: 0
@@ -8588,7 +8632,6 @@ MonoBehaviour:
   gravity: 9.8
   driftStrength: 20
   driftSlowDownFactor: 0.8
-  rampForceMultiplier: 0.75
   driftBoostTime: 0.3
   speedBoostAmount: 10
   speedBoostDuration: 1.5
