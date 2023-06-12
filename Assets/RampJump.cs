@@ -8,8 +8,6 @@ public class RampJump : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-
-            Debug.Log("please");
             ScooterController scooter = other.gameObject.GetComponent<ScooterController>();
             if (scooter != null)
             {

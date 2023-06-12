@@ -39,6 +39,15 @@ public class PlayerBehavior : MonoBehaviour
             FindObjectOfType<LevelManager>().LevelLost();
         }
     }
+    private void OnTriggerEnter(Collider other)
+    {
+        // Replace "Obstacle" with the tag of your obstacle objects
+        if (other.CompareTag("Obstacle"))
+        {
+            PlayerDies();
+            FindObjectOfType<LevelManager>().LevelLost();
+        }
+    }
 
     public void ChangeToFPS()
     {
