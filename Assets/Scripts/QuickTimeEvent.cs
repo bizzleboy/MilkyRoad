@@ -1,50 +1,72 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class QuickTimeEvent : MonoBehaviour
 {
-    public Animator animator;
-    public PlayerBehavior player;
-    public float duration = 5f; // change this to your animation's duration
-    private int pressCount;
-    private bool isQteActive;
+    public GameObject enemyPrefab;
+    public GameObject playerModel;  // Reference to the PlayerModel
+    public AnimationClip enemyCrawlAnimation;
+    public int requiredPresses = 15;
+    public float timeLimit = 5f;
 
-    void Start()
-    {
-        animator = GetComponent<Animator>();
-    }
+    private bool eventTriggered = false;
+    private float eventStartTime;
+    private int presses;
 
     void Update()
     {
-        if (isQteActive)
+       
+        if (eventTriggered)
         {
-            if (Input.GetKeyDown(KeyCode.Space))
+            // Count the return key presses
+            if (Input.GetKeyDown(KeyCode.Return))
             {
-                pressCount++;
-                if (pressCount >= 15)
-                {
-                    isQteActive = false;
-                    // Player survives QTE
-                }
+                presses++;
+            }
+
+            // Check if player has won or lost
+            if (presses >= requiredPresses)
+            {
+                eventTriggered = false;
+                // Player won, add code to handle that here
+                Debug.Log("Win");
+            }
+            else if (Time.time - eventStartTime > timeLimit)
+            {
+                Debug.Log("Lose");
+                eventTriggered = false;
+                GetComponent<PlayerBehavior>().PlayerDies();
+                FindObjectOfType<LevelManager>().LevelLost();// Trigger the player's death
             }
         }
     }
 
-    public void StartQTE()
+    void OnTriggerEnter(Collider other)
     {
-        isQteActive = true;
-        animator.Play("Crawl"); // replace with your animation's name
-        StartCoroutine(QteCountdown());
-    }
-
-    IEnumerator QteCountdown()
-    {
-        yield return new WaitForSeconds(duration);
-        if (isQteActive)
+        if (other.gameObject.tag == "QTERat" && !eventTriggered)
         {
-            // Player didn't press space enough times, so they die
-            player.PlayerDies();
+            Debug.Log("collided");
+            eventTriggered = true;
+            eventStartTime = Time.time;
+            presses = 0;
+
+            // Instantiate enemy behind the player
+
+            // Instantiate enemy behind the player
+            float xOffset = .200f; // Modify this to set how far left of the player to spawn the enemy
+            float yOffset = .0501f; // Modify this to set how far above the player to spawn the enemy
+            float zOffset = .5001f; // Modify this to set how far behind the player to spawn the enemy
+
+            // Calculate the enemy's spawn position
+            Vector3 enemyPosition = playerModel.transform.position
+                                    - playerModel.transform.right * xOffset  // Left of the player
+                                    + playerModel.transform.up * yOffset     // Above the player
+                                    - playerModel.transform.forward * zOffset; // Behind the player
+            GameObject enemy = Instantiate(enemyPrefab, enemyPosition, Quaternion.identity);
+
+            // Play enemy animation
+            enemy.GetComponent<Animation>().clip = enemyCrawlAnimation;
+            enemy.GetComponent<Animation>().Play();
         }
     }
 }

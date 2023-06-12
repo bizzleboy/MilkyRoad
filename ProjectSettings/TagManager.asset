@@ -13,6 +13,7 @@ TagManager:
   - SceneChange
   - WanderPoint
   - StandRat
+  - QTERat
   layers:
   - Default
   - TransparentFX
