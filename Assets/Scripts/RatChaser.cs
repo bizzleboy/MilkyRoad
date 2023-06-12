@@ -70,7 +70,6 @@ public class RatChaser : MonoBehaviour
         else
         {
             currentState = FSMStates.Hit;
-            //enemySpeed = 0;
             anim.SetInteger("animState", 0);
         }
 
@@ -91,10 +90,9 @@ public class RatChaser : MonoBehaviour
     void UpdatePatrolState()
     {
         print("Patrolling!");
-        //enemySpeed = 5;
         anim.SetInteger("animState", 1);
 
-        if (Vector3.Distance(transform.position, nextDestination) < 1)
+        if (Vector3.Distance(transform.position, nextDestination) < 1.5)
         {
             FindNextPoint();
         }
