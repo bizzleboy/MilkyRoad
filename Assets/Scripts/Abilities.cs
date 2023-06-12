@@ -13,7 +13,7 @@ public class Abilities : MonoBehaviour
     bool lightOn;
 
     float timer;
-    float stopTime = 3f;
+    float stopTime = 2f;
 
     private void Start()
     {
@@ -38,6 +38,13 @@ public class Abilities : MonoBehaviour
         }
 
         if (LightBehavior.lightHitRatFromSource)
+        {
+            timer = 0;
+            RatChaser.lightHit = true;
+            LightBehavior.lightHitRatFromSource = false;
+        }
+
+        if (RatChaser.lightHit)
         {
             timer += Time.deltaTime;
         }

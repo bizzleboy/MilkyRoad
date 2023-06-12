@@ -5,17 +5,10 @@ using UnityEngine;
 public class LightBehavior : MonoBehaviour
 {
     public static bool lightHitRatFromSource;
-    float timer;
-    float stopTime = 2f;
-    float lightRange;
-
-
 
     // Start is called before the first frame update
     void Start()
     {
-        lightRange = GetComponent<Light>().range;
-        timer = 0;
         lightHitRatFromSource = false;
 
         var collider = GetComponent<CapsuleCollider>();
@@ -28,7 +21,6 @@ public class LightBehavior : MonoBehaviour
         {
             RatChaser.lightHit = true;
             lightHitRatFromSource = true;
-            timer = 0;
         }
     }
 }
