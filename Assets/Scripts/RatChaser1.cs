@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RatChaser : MonoBehaviour
+public class RatChaser1 : MonoBehaviour
 {
     public enum FSMStates
     {
