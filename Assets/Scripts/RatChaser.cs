@@ -23,7 +23,7 @@ public class RatChaser : MonoBehaviour
 
     GameObject[] wanderPoints;
     Vector3 nextDestination;
-    //Animator anim;
+    Animator anim;
     float distanceToPlayer;
 
     int currentDestinationIndex = 0;
@@ -35,7 +35,7 @@ public class RatChaser : MonoBehaviour
     {
         lightHit = false;
         wanderPoints = GameObject.FindGameObjectsWithTag("WanderPoint");
-        //anim = GetComponent<Animator>();
+        anim = GetComponent<Animator>();
         player = GameObject.FindGameObjectWithTag("Player");
 
         Initialize();
@@ -70,8 +70,8 @@ public class RatChaser : MonoBehaviour
         else
         {
             currentState = FSMStates.Hit;
-            enemySpeed = 0;
-            //anim.SetInteger("animState", 0);
+            //enemySpeed = 0;
+            anim.SetInteger("animState", 0);
         }
 
     }
@@ -91,8 +91,8 @@ public class RatChaser : MonoBehaviour
     void UpdatePatrolState()
     {
         print("Patrolling!");
-        enemySpeed = 5;
-        //anim.SetInteger("animState", 1);
+        //enemySpeed = 5;
+        anim.SetInteger("animState", 1);
 
         if (Vector3.Distance(transform.position, nextDestination) < 1)
         {
@@ -105,13 +105,13 @@ public class RatChaser : MonoBehaviour
 
         FaceTarget(nextDestination);
 
-        transform.position = Vector3.MoveTowards(transform.position, nextDestination, enemySpeed * Time.deltaTime);
+        //transform.position = Vector3.MoveTowards(transform.position, nextDestination, enemySpeed * Time.deltaTime);
     }
 
     void UpdateChaseState()
     {
         print("Chasing!");
-        //anim.SetInteger("animState", 2);
+        anim.SetInteger("animState", 2);
 
         nextDestination = player.transform.position;
 
@@ -125,7 +125,7 @@ public class RatChaser : MonoBehaviour
         }
 
         FaceTarget(nextDestination);
-        transform.position = Vector3.MoveTowards(transform.position, nextDestination, enemySpeed * Time.deltaTime);
+        //transform.position = Vector3.MoveTowards(transform.position, nextDestination, enemySpeed * Time.deltaTime);
     }
 
     void UpdateAttackState()
@@ -148,12 +148,12 @@ public class RatChaser : MonoBehaviour
         }
 
         FaceTarget(nextDestination);
-        //anim.SetInteger("animState", 3);
+        anim.SetInteger("animState", 3);
     }
 
     void UpdateDeadState()
     {
-        //anim.SetInteger("animState", 4);
+        anim.SetInteger("animState", 4);
 
         Destroy(gameObject, 3);
     }
