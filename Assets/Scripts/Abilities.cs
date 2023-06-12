@@ -11,16 +11,12 @@ public class Abilities : MonoBehaviour
     public Transform enemy;
 
     bool lightOn;
-    float lightRange;
 
-    float fieldOfView = 90f;
-    bool lightHit;
     float timer;
-    float stopTime = 2f;
+    float stopTime = 3f;
 
     private void Start()
     {
-        lightRange = lights.GetComponent<Light>().range;
         lightOn = false;
         timer = 0;
     }
@@ -41,17 +37,7 @@ public class Abilities : MonoBehaviour
             }
         }
 
-        if (lightOn)
-        {
-            if (Vector3.Distance(lights.transform.position, enemy.transform.position) <= lightRange)
-            {
-                RatChaser.lightHit = true;
-                lightHit = true;
-                timer = 0;
-            }
-        }
-
-        if (lightHit)
+        if (LightBehavior.lightHitRatFromSource)
         {
             timer += Time.deltaTime;
         }
@@ -60,8 +46,8 @@ public class Abilities : MonoBehaviour
         {
             RatChaser.lightHit = false;
             timer = 0;
-            lightOn = false;
         }
+
     }
 
     void SwitchLight()

@@ -12,9 +12,9 @@ public class PlayerBehavior : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        fpsMode = false;
         ground = GameObject.FindGameObjectWithTag("Ground").transform;
         animate = transform.GetChild(1).GetComponent<Animator>();
-        fpsMode = false;
     }
 
     // Update is called once per frame
@@ -34,6 +34,15 @@ public class PlayerBehavior : MonoBehaviour
     {
         // Replace "Obstacle" with the tag of your obstacle objects
         if (collision.gameObject.CompareTag("Obstacle"))
+        {
+            PlayerDies();
+            FindObjectOfType<LevelManager>().LevelLost();
+        }
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        // Replace "Obstacle" with the tag of your obstacle objects
+        if (other.CompareTag("Obstacle"))
         {
             PlayerDies();
             FindObjectOfType<LevelManager>().LevelLost();

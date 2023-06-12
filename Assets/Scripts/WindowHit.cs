@@ -12,6 +12,17 @@ public class WindowHit : MonoBehaviour
 
     public int windowAmount;
 
+    public bool hasBlocker = false;
+    public GameObject blocker;
+
+    private void Start()
+    {
+        if (hasBlocker)
+        {
+            blocker.SetActive(true);
+        }
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Pizza"))
