@@ -3128,7 +3128,7 @@ MonoBehaviour:
   levelTime: 0
   gameOverSFX: {fileID: 8300000, guid: d05e9df306ee554418f277b8aeb9e3e2, type: 3}
   gameWonSFX: {fileID: 8300000, guid: 7e7e0275b7e378c44b843844814e9f59, type: 3}
-  nextLevel: Level2
+  nextLevel: Level2Sky
   gameText: {fileID: 1585527319}
   timerText: {fileID: 108505483}
   scoreText: {fileID: 121356586}

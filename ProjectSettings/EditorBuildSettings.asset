@@ -12,6 +12,6 @@ EditorBuildSettings:
     path: Assets/Scenes/ShootingScene.unity
     guid: 02d73034eb220f545983b0ef3bb086bb
   - enabled: 1
-    path: Assets/Scenes/Level2.unity
+    path: Assets/Scenes/Level2Sky.unity
     guid: abcb2ecb4a56547fbbb79865431dd90a
   m_configObjects: {}
