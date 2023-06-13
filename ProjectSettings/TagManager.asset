@@ -3,23 +3,7 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - RampEnd
-  - Obstacle
-  - Pizza
-  - Ground
-  - ProjecttileParent
-  - Window
-  - SceneChange
-  - WanderPoint
-  - StandRat
-<<<<<<< HEAD
-  - QTERat
-  - Model
-=======
-  - Tutorial
-  - Tutorial1
->>>>>>> df003cd5193ceeb5f14b02fe59d0ccc7aee7a3c8
+  tags: []
   layers:
   - Default
   - TransparentFX
