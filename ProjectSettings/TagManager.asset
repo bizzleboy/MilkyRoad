@@ -13,6 +13,8 @@ TagManager:
   - SceneChange
   - WanderPoint
   - StandRat
+  - Tutorial
+  - Tutorial1
   layers:
   - Default
   - TransparentFX
