@@ -1,9 +1,5 @@
 fileFormatVersion: 2
-<<<<<<<< HEAD:Assets/Scripts/NextLevelTrigger1.cs.meta
-guid: ee4641a188b819040abc9c6269c02e82
-========
-guid: 075fc1f9eda70304588fef162aee8dd4
->>>>>>>> julia's-assets:Assets/Scripts/Tutorial1.cs.meta
+guid: ca00785740431374d975735dca09c64c
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
