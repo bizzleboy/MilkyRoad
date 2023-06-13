@@ -38,8 +38,7 @@ public class Tutorial1 : MonoBehaviour
         {
             tutorialText.text = "1. use WASD keys to drive Pepper's scooter" + "\n" +
                                 "2. Avoid crashing into obstacles like rats and trash cans"+ "\n" +
-                                "3. If a sleeping dog is in your way press space to honk and wake it up" + "\n" +
-                                "4. If a rat starts chasing you, left click to temporarily blind it";
+                                "3. If a sleeping dog is in your way press space to honk and wake it up";
         }
         else
         {
