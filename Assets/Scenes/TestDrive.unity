@@ -482,6 +482,10 @@ MonoBehaviour:
   requiredPresses: 15
   timeLimit: 5
   rotationSpeed: 360
+  qteImage: {fileID: 239240390}
+  scaleSpeed: 1
+  minScale: {x: 1, y: 1, z: 1}
+  maxScale: {x: 2, y: 2, z: 2}
 --- !u!1 &842020862
 GameObject:
   m_ObjectHideFlags: 0
