@@ -13,6 +13,8 @@ public class ScooterController : MonoBehaviour
     public bool playerControl = true; // Add this
     public float qteSpeed = 1f; // Speed during Quick Time Event
 
+    public bool canMove = true;
+
 
     public float driftBoostTime = 3f;
     public float speedBoostAmount = 5f;
@@ -36,8 +38,8 @@ public class ScooterController : MonoBehaviour
     {
         if (!LevelManager.isGameOver)
         {
-            if (playerControl)
-            {
+            if (canMove) { 
+           
                 float verticalInput = Input.GetAxis("Vertical");
                 float horizontalInput = Input.GetAxis("Horizontal");
 
@@ -115,13 +117,9 @@ public class ScooterController : MonoBehaviour
             {
                 speed = 0;
             }
+
         }
-        else
-        {
-            moveDirection = transform.forward * qteSpeed;
-            moveDirection.y -= gravity * Time.deltaTime;
-            characterController.Move(moveDirection * Time.deltaTime);
-        }
+
     }
 
     public void LaunchUpward(float power)

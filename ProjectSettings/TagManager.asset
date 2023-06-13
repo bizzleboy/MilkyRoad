@@ -14,6 +14,7 @@ TagManager:
   - WanderPoint
   - StandRat
   - QTERat
+  - Model
   layers:
   - Default
   - TransparentFX
