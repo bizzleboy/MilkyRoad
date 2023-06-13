@@ -4,50 +4,40 @@ using UnityEngine.UI;
 
 public class QuickTimeEvent : MonoBehaviour
 {
-    public GameObject enemyPrefab;
-    public GameObject playerModel;  // Reference to the PlayerModel
-    public AnimationClip enemyCrawlAnimation;
+    public GameObject playerModel;
     public int requiredPresses = 15;
     public float timeLimit = 5f;
-
-    public Image image1; // Reference to the first image
-    public Image image2; // Reference to the second image
-    public AudioClip winSound; // Sound to play when the player wins
+    public float rotationSpeed = 360f;  // Speed of the rotation
+    public Image qteImage;  // Reference to the Quick Time Event Image
+    public float scaleSpeed = 1f;  // Speed of the image scaling effect
+    public Vector3 minScale = new Vector3(1f, 1f, 1f);  // Minimum scale of the image
+    public Vector3 maxScale = new Vector3(2f, 2f, 2f);  // Maximum scale of the image
 
     private bool eventTriggered = false;
+    private bool rotating = false;
     private float eventStartTime;
     private int presses;
+    private float totalRotation = 0;
+    private ScooterController playerMovement;
 
-    void Update()
+    private void Start()
     {
-       
-        if (eventTriggered)
+        playerMovement = gameObject.GetComponent<ScooterController>();
+        if (playerModel == null)
         {
-            // Count the return key presses
-            if (Input.GetKeyDown(KeyCode.Return))
-            {
-                presses++;
-            }
-
-            // Check if player has won or lost
-            if (presses >= requiredPresses)
-            {
-                eventTriggered = false;
-                playerModel.GetComponent<ScooterController>().playerControl = true;
-              // AudioSource.PlayClipAtPoint(winSound, playerModel.transform.position);
-                Debug.Log("Win");
-                StopCoroutine("FlashImages");
-
-            }
-            else if (Time.time - eventStartTime > timeLimit)
-            {
-                Debug.Log("Lose");
-                eventTriggered = false;
-             
-                GetComponent<PlayerBehavior>().PlayerDies();
-                FindObjectOfType<LevelManager>().LevelLost();
-                StopCoroutine("FlashImages");
-            }
+            Debug.Log("playerModel is null");
+        }
+        if (playerMovement == null)
+        {
+            Debug.Log("playerMovement is null");
+        }
+        if (qteImage == null)
+        {
+            Debug.Log("qteImage is null");
+        }
+        else
+        {
+            qteImage.gameObject.SetActive(false);  // Initially set the image to be inactive
         }
     }
 
@@ -55,44 +45,77 @@ public class QuickTimeEvent : MonoBehaviour
     {
         if (other.gameObject.tag == "QTERat" && !eventTriggered)
         {
+            playerMovement.canMove = false;
             Debug.Log("collided");
             eventTriggered = true;
             eventStartTime = Time.time;
             presses = 0;
-
-            // Instantiate enemy behind the player
-
-            // Instantiate enemy behind the player
-            float xOffset = .200f; // Modify this to set how far left of the player to spawn the enemy
-            float yOffset = .0501f; // Modify this to set how far above the player to spawn the enemy
-            float zOffset = .5001f; // Modify this to set how far behind the player to spawn the enemy
-
-            // Calculate the enemy's spawn position
-            Vector3 enemyPosition = playerModel.transform.position
-                                    - playerModel.transform.right * xOffset  // Left of the player
-                                    + playerModel.transform.up * yOffset     // Above the player
-                                    - playerModel.transform.forward * zOffset; // Behind the player
-            GameObject enemy = Instantiate(enemyPrefab, enemyPosition, Quaternion.identity);
-
-            // Play enemy animation
-            enemy.GetComponent<Animation>().clip = enemyCrawlAnimation;
-            enemy.GetComponent<Animation>().Play();
-
-            playerModel.GetComponent<ScooterController>().playerControl = false;
-            StartCoroutine("FlashImages");
+            if (qteImage != null)
+            {
+                qteImage.gameObject.SetActive(true);  // Set the image to be active when the event starts
+            }
         }
     }
 
-    IEnumerator FlashImages()
+    void Update()
     {
-        while (true)
+        if (eventTriggered)
         {
-            image1.enabled = true;
-            image2.enabled = false;
-            yield return new WaitForSeconds(0.5f);
-            image1.enabled = false;
-            image2.enabled = true;
-            yield return new WaitForSeconds(0.5f);
+            playerMovement.canMove = false;
+            if (Input.GetKeyDown(KeyCode.Return))
+            {
+                presses++;
+            }
+
+            if (presses >= requiredPresses)
+            {
+                Debug.Log("Win");
+                playerMovement.canMove = true;
+                eventTriggered = false;
+                rotating = true;
+                totalRotation = 0;
+                if (qteImage != null)
+                {
+                    qteImage.gameObject.SetActive(false);  // Set the image to be inactive when the event ends
+                }
+            }
+            else if (Time.time - eventStartTime > timeLimit)
+            {
+                Debug.Log("Lose");
+                eventTriggered = false;
+                playerMovement.canMove = true;
+                GetComponent<PlayerBehavior>().PlayerDies();
+                FindObjectOfType<LevelManager>().LevelLost();
+                if (qteImage != null)
+                {
+                    qteImage.gameObject.SetActive(false);  // Set the image to be inactive when the event ends
+                }
+            }
+
+            if (qteImage != null)
+            {
+                // Create a scaling effect for the image while the event is in progress
+                float scale = Mathf.PingPong(Time.time * scaleSpeed, 1);  // Returns value between 0 and 1
+                qteImage.transform.localScale = Vector3.Lerp(minScale, maxScale, scale);  // Lerp between minScale and maxScale
+            }
+        }
+
+        if (rotating)
+        {
+            // Apply rotation to player
+            float rotation = rotationSpeed * Time.deltaTime;
+            this.transform.Rotate(0, rotation, 0);
+
+            totalRotation += rotation;
+            if (totalRotation >= 360f)
+            {
+                rotating = false;
+                // Fix possible overshoot by resetting to the exact final rotation
+                this.transform.localEulerAngles = new Vector3(
+                    this.transform.localEulerAngles.x,
+                    this.transform.localEulerAngles.y % 360f,
+                    this.transform.localEulerAngles.z);
+            }
         }
     }
 }
