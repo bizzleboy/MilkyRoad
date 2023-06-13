@@ -139,6 +139,7 @@ public class RatChaser : MonoBehaviour
 
         FaceTarget(nextDestination);
         anim.SetInteger("animState", 3);
+        FindObjectOfType<LevelManager>().LevelLost();
     }
 
     void UpdateDeadState()
