@@ -131,6 +131,11 @@ public class ScooterController : MonoBehaviour
         }
     }
 
+    public void BoostSpeed(float boostAmount, float boostDuration)
+    {
+        speed += boostAmount;
+        boostEndTime = Time.time + boostDuration;
+    }
 
 
 }
