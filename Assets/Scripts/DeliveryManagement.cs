@@ -6,6 +6,7 @@ public class DeliveryManagement : MonoBehaviour
 {
     public GameObject primaryLight;
     public GameObject secondaryLight;
+
     public void ActivateLight()
     {
         secondaryLight.SetActive(true);

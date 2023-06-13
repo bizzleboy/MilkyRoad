@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NextLevelTrigger : MonoBehaviour
+public class NextLevelTrigger1 : MonoBehaviour
 {
     public GameObject sceneChange;
     public GameObject crosshair;
@@ -23,10 +23,7 @@ public class NextLevelTrigger : MonoBehaviour
 
             crosshair.SetActive(true);
             sceneChange.SetActive(true);
-            
-            
             gameObject.SetActive(false);
-            GameObject.FindGameObjectWithTag("SceneChange").GetComponent<DeliveryManagement>().ActivateLight();
         }
     }
 }

@@ -83,13 +83,11 @@ public class RatChaser : MonoBehaviour
 
     void UpdateHitState()
     {
-        print("Hit!");
         currentState = FSMStates.Patrol;
     }
 
     void UpdatePatrolState()
     {
-        print("Patrolling!");
         anim.SetInteger("animState", 1);
 
         if (Vector3.Distance(transform.position, nextDestination) < 1.5)
@@ -102,13 +100,10 @@ public class RatChaser : MonoBehaviour
         }
 
         FaceTarget(nextDestination);
-
-        //transform.position = Vector3.MoveTowards(transform.position, nextDestination, enemySpeed * Time.deltaTime);
     }
 
     void UpdateChaseState()
     {
-        print("Chasing!");
         anim.SetInteger("animState", 2);
 
         nextDestination = player.transform.position;
@@ -123,13 +118,10 @@ public class RatChaser : MonoBehaviour
         }
 
         FaceTarget(nextDestination);
-        //transform.position = Vector3.MoveTowards(transform.position, nextDestination, enemySpeed * Time.deltaTime);
     }
 
     void UpdateAttackState()
     {
-        print("attack");
-
         nextDestination = player.transform.position;
 
         if (distanceToPlayer <= attackDistance)

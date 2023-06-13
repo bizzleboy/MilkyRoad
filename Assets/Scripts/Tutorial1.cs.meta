@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Scripts/NextLevelTrigger1.cs.meta
+guid: e52b492401827f44d84c4feb4f6a51fc
+========
+guid: 075fc1f9eda70304588fef162aee8dd4
+>>>>>>>> julia's-assets:Assets/Scripts/Tutorial1.cs.meta
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
