@@ -5137,6 +5137,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sceneChange: {fileID: 1245636064}
   crosshair: {fileID: 414929721}
+  hasBigBuilding: 0
+  bigBuilding: {fileID: 0}
 --- !u!1 &1467287542
 GameObject:
   m_ObjectHideFlags: 0
@@ -6687,14 +6689,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerModel: {fileID: 518304385}
-  accelerationRate: 5
+  accelerationRate: 3
   maxSpeed: 20
   minSpeedForTurn: 0.5
-  turnSpeed: 145
+  turnSpeed: 100
   gravity: 9.8
   driftStrength: 20
   driftSlowDownFactor: 0.8
-  rampForceMultiplier: 0.75
+  playerControl: 1
+  qteSpeed: 1
   driftBoostTime: 0.3
   speedBoostAmount: 10
   speedBoostDuration: 1.5
@@ -8623,7 +8626,7 @@ MonoBehaviour:
   projectPrefab: {fileID: 1103763516456273892, guid: 32e04d3234f685547a5242bd4b3f2bd1, type: 3}
   speed: 60
   throwPizzaSFX: {fileID: 8300000, guid: f96dd7b18d5d2424691c71b7dc1912d7, type: 3}
-  reticleImage: {fileID: 0}
+  reticleImage: {fileID: 414929723}
   reticleWindowcolor: {r: 0.8773585, g: 0.6567516, b: 0.43454075, a: 0.62352943}
 --- !u!114 &2134490564
 MonoBehaviour:
