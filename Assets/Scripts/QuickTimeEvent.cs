@@ -23,22 +23,7 @@ public class QuickTimeEvent : MonoBehaviour
     private void Start()
     {
         playerMovement = gameObject.GetComponent<ScooterController>();
-        if (playerModel == null)
-        {
-            Debug.Log("playerModel is null");
-        }
-        if (playerMovement == null)
-        {
-            Debug.Log("playerMovement is null");
-        }
-        if (qteImage == null)
-        {
-            Debug.Log("qteImage is null");
-        }
-        else
-        {
-            qteImage.gameObject.SetActive(false);  // Initially set the image to be inactive
-        }
+        qteImage.gameObject.SetActive(false);  // Initially set the image to be inactive
     }
 
     void OnTriggerEnter(Collider other)
@@ -46,7 +31,6 @@ public class QuickTimeEvent : MonoBehaviour
         if (other.gameObject.tag == "QTERat" && !eventTriggered)
         {
             playerMovement.canMove = false;
-            Debug.Log("collided");
             eventTriggered = true;
             eventStartTime = Time.time;
             presses = 0;
@@ -69,7 +53,6 @@ public class QuickTimeEvent : MonoBehaviour
 
             if (presses >= requiredPresses)
             {
-                Debug.Log("Win");
                 playerMovement.canMove = true;
                 eventTriggered = false;
                 rotating = true;
@@ -81,7 +64,6 @@ public class QuickTimeEvent : MonoBehaviour
             }
             else if (Time.time - eventStartTime > timeLimit)
             {
-                Debug.Log("Lose");
                 eventTriggered = false;
                 playerMovement.canMove = true;
                 GetComponent<PlayerBehavior>().PlayerDies();
