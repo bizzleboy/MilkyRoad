@@ -1290,7 +1290,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: 4.4899597, y: 0.000030517578}
-  m_SizeDelta: {x: 160, y: 30}
+  m_SizeDelta: {x: 160, y: 45.9}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &53240045
 MonoBehaviour:
@@ -1314,11 +1314,11 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 26
+    m_FontSize: 38
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
-    m_MaxSize: 40
+    m_MinSize: 3
+    m_MaxSize: 263
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -3859,7 +3859,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 237885918}
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 68.719, y: 54.89, z: -14.41}
+  m_LocalPosition: {x: 68.719, y: 54.61, z: -14.41}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -6456,7 +6456,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 4.48999, y: 0}
-  m_SizeDelta: {x: 160, y: 30}
+  m_SizeDelta: {x: 160, y: 45.99}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &436757183
 MonoBehaviour:
@@ -6480,7 +6480,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 23
+    m_FontSize: 38
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
@@ -9063,7 +9063,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 609899421}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 67.78, y: 54.84, z: -14.06}
+  m_LocalPosition: {x: 68.67, y: 54.84, z: -14.06}
   m_LocalScale: {x: 0.10077, y: 3.5955675, z: 8.601268}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -12784,7 +12784,7 @@ MonoBehaviour:
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
-    m_MaxSize: 52
+    m_MaxSize: 73
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -13851,7 +13851,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 888311704}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -77.82, y: 26.9, z: 123.41}
+  m_LocalPosition: {x: -78.06, y: 26.9, z: 123.41}
   m_LocalScale: {x: 2.17, y: 1, z: 3.63}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -14715,7 +14715,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh1043454
+  m_Name: pb_Mesh367278
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -15046,7 +15046,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh1043394
+  m_Name: pb_Mesh367218
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -16944,7 +16944,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1084328684
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22593,7 +22593,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh1043688
+  m_Name: pb_Mesh367512
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -28531,7 +28531,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh1042062
+  m_Name: pb_Mesh365870
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -30249,7 +30249,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh1043288
+  m_Name: pb_Mesh367112
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -32426,7 +32426,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh1043224
+  m_Name: pb_Mesh367048
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2

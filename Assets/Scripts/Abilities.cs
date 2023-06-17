@@ -11,6 +11,7 @@ public class Abilities : MonoBehaviour
     public Transform enemy;
 
     bool lightOn;
+    bool lightCharging;
 
     float timer;
     float stopTime = 2f;
@@ -18,6 +19,7 @@ public class Abilities : MonoBehaviour
     private void Start()
     {
         lightOn = false;
+        lightCharging = false;
         timer = 0;
     }
 
@@ -36,6 +38,8 @@ public class Abilities : MonoBehaviour
                 SwitchLight();
             }
         }
+
+        
 
         if (LightBehavior.lightHitRatFromSource)
         {

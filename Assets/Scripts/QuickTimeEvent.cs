@@ -19,6 +19,7 @@ public class QuickTimeEvent : MonoBehaviour
     private int presses;
     private float totalRotation = 0;
     private ScooterController playerMovement;
+    private int eventNum = 0;
 
     private void Start()
     {
@@ -28,22 +29,26 @@ public class QuickTimeEvent : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "QTERat" && !eventTriggered)
+        if (eventNum == 0)
         {
-            playerMovement.canMove = false;
-            eventTriggered = true;
-            eventStartTime = Time.time;
-            presses = 0;
-            if (qteImage != null)
+            if (other.gameObject.tag == "QTERat" && !eventTriggered)
             {
-                qteImage.gameObject.SetActive(true);  // Set the image to be active when the event starts
+                playerMovement.canMove = false;
+                eventTriggered = true;
+                eventStartTime = Time.time;
+                presses = 0;
+                eventNum++;
+                if (qteImage != null)
+                {
+                    qteImage.gameObject.SetActive(true);  // Set the image to be active when the event starts
+                }
             }
         }
     }
 
     void Update()
     {
-        if (eventTriggered)
+        if (eventTriggered && eventNum == 1)
         {
             playerMovement.canMove = false;
             if (Input.GetKeyDown(KeyCode.Return))
