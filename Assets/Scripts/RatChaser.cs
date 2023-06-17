@@ -46,7 +46,7 @@ public class RatChaser : MonoBehaviour
     {
         distanceToPlayer = Vector3.Distance(transform.position, player.transform.position);
 
-        if (!lightHit)
+        if (!lightHit && !LevelManager.isGameOver)
         {
             switch (currentState)
             {
