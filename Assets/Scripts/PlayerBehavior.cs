@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class PlayerBehavior : MonoBehaviour
 {
@@ -9,12 +10,16 @@ public class PlayerBehavior : MonoBehaviour
 
     Animator animate;
 
+    NavMeshAgent agent;
+
     // Start is called before the first frame update
     void Start()
     {
         fpsMode = false;
         ground = GameObject.FindGameObjectWithTag("Ground").transform;
         animate = transform.GetChild(1).GetComponent<Animator>();
+
+        agent = GetComponent<NavMeshAgent>();
     }
 
     // Update is called once per frame
