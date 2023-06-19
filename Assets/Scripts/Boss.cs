@@ -22,7 +22,10 @@ public class Boss : MonoBehaviour
     public float attackDistance = 15;
     public float enemySpeed = 10;
     public float attackRate = 3;
-    public int damageAmount = 20;
+    public int damageAmount = 5;
+
+    public static bool isHit;
+    public float hitDuration = 8;
 
     NavMeshAgent agent;
     Animator anim;
@@ -31,6 +34,7 @@ public class Boss : MonoBehaviour
     float distanceToPlayer;
     bool isDead;
     PlayerHealth playerHealth;
+    bool attacking;
 
     float elapsedTime = 0;
     float animTimer = 0;
@@ -50,7 +54,7 @@ public class Boss : MonoBehaviour
 
         currentState = FSMStates.Chase;
         isDead = false;
-
+        attacking = false;
     }
 
     // Update is called once per frame
@@ -58,8 +62,16 @@ public class Boss : MonoBehaviour
     {
         distanceToPlayer = Vector3.Distance(transform.position, player.transform.position);
 
+        if (isHit)
+        {
+            currentState = FSMStates.Hit;
+        }
+
         switch (currentState)
         {
+            case FSMStates.Hit:
+                UpdateHitState();
+                break;
             case FSMStates.Chase:
                 UpdateChaseState();
                 break;
@@ -71,19 +83,41 @@ public class Boss : MonoBehaviour
                 break;
         }
 
+
         elapsedTime += Time.deltaTime;
+        
+
+        if (attacking)
+        {
+            Attack();
+            var animDuration = anim.GetCurrentAnimatorStateInfo(0).length;
+            HandleDamage(animDuration);
+        }
+        else
+        {
+            animStart = false;
+            animTimer = 0;
+        }
+
         if (animStart)
         {
             animTimer += Time.deltaTime;
         }
     }
 
+    void UpdateHitState()
+    {
+        anim.SetInteger("animState", 6);
+
+    }
+
     void UpdateChaseState()
     {
-        anim.SetInteger("animState", 1);
+        anim.SetInteger("animState", 2);
 
         agent.speed = enemySpeed;
         nextDestination = player.transform.position;
+        agent.stoppingDistance = attackDistance;
 
         if (distanceToPlayer <= attackDistance)
         {
@@ -96,17 +130,22 @@ public class Boss : MonoBehaviour
 
     void UpdateAttackState()
     {
+        nextDestination = player.transform.position;
+        agent.stoppingDistance = attackDistance;
+
         if (distanceToPlayer <= attackDistance)
         {
+            attacking = true;
             currentState = FSMStates.Attack;
         }
-        else if (distanceToPlayer > attackDistance)
+        else
         {
+            attacking = false;
             currentState = FSMStates.Chase;
         }
 
         FaceTarget(nextDestination);
-        Attack();
+        //Attack();
     }
 
     void UpdateDeadState()
@@ -120,20 +159,11 @@ public class Boss : MonoBehaviour
         {
             if (elapsedTime >= attackRate)
             {
-                int attack = Random.Range(2, 5);
+                int attack = Random.Range(3, 6);
                 anim.SetInteger("animState", attack);
                 var animDuration = anim.GetCurrentAnimatorStateInfo(0).length;
-
-                if (animTimer >= animDuration)
-                {
-                    if (distanceToPlayer <= attackDistance)
-                    {
-                        playerHealth.TakeDamage(damageAmount);
-                    }
-                    animStart = false;
-                }
-
                 animStart = true;
+
                 if (attack == 1)
                 {
                      //AudioSource.PlayClipAtPoint(regularAttackSFX, transform.position);
@@ -154,6 +184,25 @@ public class Boss : MonoBehaviour
                 
                 elapsedTime = 0.0f;
             }
+        }
+    }
+
+    void HandleDamage(float animDuration)
+    {
+        bool dealDamage = false;
+        if (animTimer >= animDuration)
+        {
+            dealDamage = true;
+        }
+
+        if (dealDamage)
+        {
+            if (distanceToPlayer <= attackDistance)
+            {
+                playerHealth.TakeDamage(damageAmount);
+                animTimer = 0;
+            }
+            dealDamage = false;
         }
         
     }
