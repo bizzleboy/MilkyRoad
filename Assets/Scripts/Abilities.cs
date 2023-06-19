@@ -8,7 +8,6 @@ public class Abilities : MonoBehaviour
     public AudioClip LigthSwitchSFX;
 
     public GameObject lights;
-    public Transform enemy;
 
     bool lightOn;
     bool lightCharging;
