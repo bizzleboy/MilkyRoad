@@ -3780,6 +3780,9 @@ MonoBehaviour:
   honkSFX: {fileID: 8300000, guid: 93a145335caa1c6408a603336de877c1, type: 3}
   LigthSwitchSFX: {fileID: 8300000, guid: 3ffa9d151ea46f64196c452eb3a32338, type: 3}
   lights: {fileID: 1084328683}
+  lightSlider: {fileID: 2071622344}
+  decreasePower: 0.2
+  increasePower: 0.1
 --- !u!114 &237885920
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34445,7 +34448,7 @@ GameObject:
   - component: {fileID: 2071622343}
   - component: {fileID: 2071622344}
   m_Layer: 5
-  m_Name: Slider
+  m_Name: LightSlider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
