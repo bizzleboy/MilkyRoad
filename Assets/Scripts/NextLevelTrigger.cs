@@ -18,15 +18,16 @@ public class NextLevelTrigger : MonoBehaviour
             {
                 bigBuilding.SetActive(false);
             }
+            else
+            {
+                GameObject.FindGameObjectWithTag("SceneChange").GetComponent<DeliveryManagement>().ActivateLight();
+            }
             
             other.GetComponent<PlayerBehavior>().ChangeToFPS();
 
             crosshair.SetActive(true);
             sceneChange.SetActive(true);
-            
-            
             gameObject.SetActive(false);
-            GameObject.FindGameObjectWithTag("SceneChange").GetComponent<DeliveryManagement>().ActivateLight();
         }
     }
 }

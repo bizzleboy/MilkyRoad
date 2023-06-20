@@ -5200,7 +5200,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54e869f7474fec54183d952a5845ebd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  primaryLight: {fileID: 0}
+  primaryLight: {fileID: 1253832804}
   secondaryLight: {fileID: 847769558}
 --- !u!4 &359243062 stripped
 Transform:
@@ -11260,7 +11260,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1407046422803444323, guid: c670e2ecf8d78974f88996b7c07457ab, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1407046422803444323, guid: c670e2ecf8d78974f88996b7c07457ab, type: 3}
       propertyPath: chaseDistance
@@ -14881,7 +14881,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6915961923803023784, guid: a0a69be3e3463774fa6433c0e2e44e18, type: 3}
   m_PrefabInstance: {fileID: 1451403062}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &953520657
+--- !u!114 &953520658
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -14890,7 +14890,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 953520651}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 485b070b2f70ddf4a9f51cb8dd22c43e, type: 3}
+  m_Script: {fileID: 11500000, guid: 35a684e1636f0fa45b8c0af61de5b9cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   sceneChange: {fileID: 348169271}

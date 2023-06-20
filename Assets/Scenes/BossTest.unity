@@ -1827,13 +1827,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1725713199}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 485b070b2f70ddf4a9f51cb8dd22c43e, type: 3}
+  m_Script: {fileID: 11500000, guid: 35a684e1636f0fa45b8c0af61de5b9cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   sceneChange: {fileID: 87574008}
   crosshair: {fileID: 1911897775}
-  hasBigBuilding: 0
-  bigBuilding: {fileID: 0}
+  hasBigBuilding: 1
+  bigBuilding: {fileID: 87574008}
 --- !u!1 &1762459501
 GameObject:
   m_ObjectHideFlags: 0
@@ -2078,7 +2078,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1911897776
 RectTransform:
   m_ObjectHideFlags: 0
