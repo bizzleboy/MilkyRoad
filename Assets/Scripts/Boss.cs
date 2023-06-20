@@ -18,6 +18,7 @@ public class Boss : MonoBehaviour
     public FSMStates currentState;
     public GameObject cheese;
     public GameObject throwCheese;
+    public GameObject firstHit;
 
     public float attackDistance = 15;
     public float enemySpeed = 10;
@@ -26,20 +27,22 @@ public class Boss : MonoBehaviour
 
     public static bool isHit;
     public float hitDuration = 8;
+    public static bool isDead;
 
     NavMeshAgent agent;
     Animator anim;
     Vector3 nextDestination;
 
     float distanceToPlayer;
-    bool isDead;
     PlayerHealth playerHealth;
     bool attacking;
 
     float elapsedTime = 0;
     float animTimer = 0;
+    float hitTimer = 0;
+    bool hitStart = false;
     bool animStart = false;
-    
+    public static bool turnOnFirstHit = false;
 
     // Start is called before the first frame update
     void Start()
@@ -62,9 +65,15 @@ public class Boss : MonoBehaviour
     {
         distanceToPlayer = Vector3.Distance(transform.position, player.transform.position);
 
+        if (isDead)
+        {
+            currentState = FSMStates.Dead;
+        }
+
         if (isHit)
         {
             currentState = FSMStates.Hit;
+            hitStart = true;
         }
 
         switch (currentState)
@@ -103,12 +112,30 @@ public class Boss : MonoBehaviour
         {
             animTimer += Time.deltaTime;
         }
+
+        if (hitStart)
+        {
+            hitTimer += Time.deltaTime;
+        }
     }
 
     void UpdateHitState()
     {
         anim.SetInteger("animState", 6);
+        
+        if (turnOnFirstHit)
+        {
+            firstHit.SetActive(true);
+            turnOnFirstHit = false;
+        }
 
+        if (hitTimer >= hitDuration)
+        {
+            hitStart = false;
+            hitTimer = 0;
+            isHit = false;
+            currentState = FSMStates.Chase;
+        }
     }
 
     void UpdateChaseState()
@@ -141,16 +168,18 @@ public class Boss : MonoBehaviour
         else
         {
             attacking = false;
+            cheese.SetActive(false);
             currentState = FSMStates.Chase;
         }
 
         FaceTarget(nextDestination);
-        //Attack();
     }
 
     void UpdateDeadState()
     {
-        isDead = true;
+        //anim.SetInteger("animState", 4);
+
+        Destroy(gameObject, 3);
     }
 
     void Attack()

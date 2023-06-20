@@ -33,7 +33,6 @@ public class WindowHit : MonoBehaviour
 
     void Delivered()
     {
-
         gameObject.SetActive(false);
 
         if(nextTarget != null) 

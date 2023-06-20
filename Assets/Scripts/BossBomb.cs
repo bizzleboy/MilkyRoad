@@ -31,6 +31,7 @@ public class BossBomb : MonoBehaviour
             if (distanceToBoss <= stunDistance)
             {
                 Boss.isHit = true;
+                Boss.turnOnFirstHit = true;
             }
             gameObject.SetActive(false);
             Instantiate(Explosion, transform.position, transform.rotation);
