@@ -78,7 +78,7 @@ public class QuickTimeEvent : MonoBehaviour
                     qteImage.gameObject.SetActive(false);  // Set the image to be inactive when the event ends
                 }
             }
-
+            
             if (qteImage != null)
             {
                 // Create a scaling effect for the image while the event is in progress
