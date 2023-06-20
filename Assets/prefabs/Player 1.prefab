@@ -120,7 +120,9 @@ MonoBehaviour:
   gravity: 9
   driftStrength: 90
   driftSlowDownFactor: 0.4
-  rampForceMultiplier: 5
+  playerControl: 1
+  qteSpeed: 1
+  canMove: 1
   driftBoostTime: 1
   speedBoostAmount: 20
   speedBoostDuration: 2
