@@ -20,10 +20,10 @@ public class Boss : MonoBehaviour
     public GameObject throwCheese;
     public GameObject firstHit;
 
-    public float attackDistance = 15;
-    public float enemySpeed = 10;
+    public float attackDistance = 10;
+    public float enemySpeed = 9;
     public float attackRate = 3;
-    public int damageAmount = 5;
+    public int damageAmount = 10;
 
     public static bool isHit;
     public float hitDuration = 8;
@@ -72,6 +72,7 @@ public class Boss : MonoBehaviour
 
         if (isHit)
         {
+            cheese.SetActive(false);
             currentState = FSMStates.Hit;
             hitStart = true;
         }

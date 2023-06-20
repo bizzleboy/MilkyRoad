@@ -23,10 +23,13 @@ public class CheeseAttackBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Rigidbody rb = GetComponent<Rigidbody>();
+        if (!Boss.isHit)
+        {
+            Rigidbody rb = GetComponent<Rigidbody>();
 
-        rb.AddForce(transform.forward * speed, ForceMode.VelocityChange);
+            rb.AddForce(transform.forward * speed, ForceMode.VelocityChange);
 
-        transform.SetParent(GameObject.FindGameObjectWithTag("ProjecttileParent").transform);
+            transform.SetParent(GameObject.FindGameObjectWithTag("ProjecttileParent").transform);
+        }
     }
 }

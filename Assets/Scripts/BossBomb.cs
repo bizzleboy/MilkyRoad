@@ -5,12 +5,15 @@ using UnityEngine;
 public class BossBomb : MonoBehaviour
 {
     public GameObject boss;
-    public float stunDistance = 20;
+    public float stunDistance = 10;
     public GameObject Explosion;
     public Transform player;
+    public float explosionTime = 8;
 
+    float explodeTimer;
     float distanceToBoss;
     bool explode;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -18,6 +21,7 @@ public class BossBomb : MonoBehaviour
         boss = GameObject.FindGameObjectWithTag("Boss");
         player = GameObject.FindGameObjectWithTag("Player").transform;
         explode = false;
+        explodeTimer = 0;
     }
 
     // Update is called once per frame
@@ -33,6 +37,15 @@ public class BossBomb : MonoBehaviour
                 Boss.isHit = true;
                 Boss.turnOnFirstHit = true;
             }
+            gameObject.SetActive(false);
+            Instantiate(Explosion, transform.position, transform.rotation);
+            Destroy(gameObject, 2f);
+        }
+
+        explodeTimer += Time.deltaTime;
+
+        if (explodeTimer >= explosionTime)
+        {
             gameObject.SetActive(false);
             Instantiate(Explosion, transform.position, transform.rotation);
             Destroy(gameObject, 2f);

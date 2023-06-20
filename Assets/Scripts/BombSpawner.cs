@@ -6,7 +6,7 @@ public class BombSpawner : MonoBehaviour
 {
     public GameObject enemyPrefab;
 
-    public float spawnTime = 5;
+    public float spawnTime = 10;
 
     public float xMin = -25;
     public float xMax = 25;

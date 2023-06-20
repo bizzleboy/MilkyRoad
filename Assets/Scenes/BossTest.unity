@@ -1268,7 +1268,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1248965550}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 50.84, y: 30.4, z: -14.8}
+  m_LocalPosition: {x: 40.83, y: 30.4, z: -16.07}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1288,13 +1288,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 6927070005257506091, guid: b33657c7d9c392a4197aa8eabcdffc8c, type: 3}
-  spawnTime: 5
-  xMin: -25
-  xMax: 25
-  yMin: 8
-  yMax: 25
-  zMin: -25
-  zMax: 25
+  spawnTime: 10
+  xMin: -29.4
+  xMax: 45
+  yMin: 28.67588
+  yMax: 28.67588
+  zMin: -49.4
+  zMax: 12.2
 --- !u!1 &1419058548
 GameObject:
   m_ObjectHideFlags: 0
@@ -1910,6 +1910,22 @@ PrefabInstance:
     - target: {fileID: 3662240153255098969, guid: efc5efaab1d4ff240a5859c81a76f5b9, type: 3}
       propertyPath: m_Name
       value: Boss Rat
+      objectReference: {fileID: 0}
+    - target: {fileID: 4150406429943095522, guid: efc5efaab1d4ff240a5859c81a76f5b9, type: 3}
+      propertyPath: attackRate
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4150406429943095522, guid: efc5efaab1d4ff240a5859c81a76f5b9, type: 3}
+      propertyPath: enemySpeed
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4150406429943095522, guid: efc5efaab1d4ff240a5859c81a76f5b9, type: 3}
+      propertyPath: damageAmount
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4150406429943095522, guid: efc5efaab1d4ff240a5859c81a76f5b9, type: 3}
+      propertyPath: attackDistance
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4150406429943095523, guid: efc5efaab1d4ff240a5859c81a76f5b9, type: 3}
       propertyPath: m_RootOrder
