@@ -37,20 +37,24 @@ public class PlayerBehavior : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        // Replace "Obstacle" with the tag of your obstacle objects
         if (collision.gameObject.CompareTag("Obstacle"))
         {
             PlayerDies();
             FindObjectOfType<LevelManager>().LevelLost();
         }
     }
+
     private void OnTriggerEnter(Collider other)
     {
-        // Replace "Obstacle" with the tag of your obstacle objects
         if (other.CompareTag("Obstacle"))
         {
             PlayerDies();
             FindObjectOfType<LevelManager>().LevelLost();
+        }
+
+        if (other.CompareTag("CheeseAttack"))
+        {
+            GetComponent<PlayerHealth>().TakeDamage(5);
         }
     }
 

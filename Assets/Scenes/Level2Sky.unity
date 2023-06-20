@@ -3780,7 +3780,6 @@ MonoBehaviour:
   honkSFX: {fileID: 8300000, guid: 93a145335caa1c6408a603336de877c1, type: 3}
   LigthSwitchSFX: {fileID: 8300000, guid: 3ffa9d151ea46f64196c452eb3a32338, type: 3}
   lights: {fileID: 1084328683}
-  enemy: {fileID: 0}
 --- !u!114 &237885920
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11259,6 +11258,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1407046422803444323, guid: c670e2ecf8d78974f88996b7c07457ab, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1407046422803444323, guid: c670e2ecf8d78974f88996b7c07457ab, type: 3}
       propertyPath: chaseDistance
       value: 9

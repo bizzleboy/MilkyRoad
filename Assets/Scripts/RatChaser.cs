@@ -10,8 +10,7 @@ public class RatChaser : MonoBehaviour
         Patrol,
         Chase,
         Attack,
-        Hit,
-        Dead
+        Hit
     }
 
     public FSMStates currentState;
@@ -62,15 +61,12 @@ public class RatChaser : MonoBehaviour
                 case FSMStates.Attack:
                     UpdateAttackState();
                     break;
-                case FSMStates.Dead:
-                    UpdateDeadState();
-                    break;
             }
         }
         else
         {
             currentState = FSMStates.Hit;
-            anim.SetInteger("animState", 0);
+            anim.SetInteger("animState", 6);
         }
 
     }
@@ -140,13 +136,6 @@ public class RatChaser : MonoBehaviour
         FaceTarget(nextDestination);
         anim.SetInteger("animState", 3);
         FindObjectOfType<LevelManager>().LevelLost();
-    }
-
-    void UpdateDeadState()
-    {
-        anim.SetInteger("animState", 4);
-
-        Destroy(gameObject, 3);
     }
 
     void FindNextPoint()

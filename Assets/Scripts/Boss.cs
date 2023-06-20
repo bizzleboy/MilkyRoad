@@ -18,24 +18,35 @@ public class Boss : MonoBehaviour
     public FSMStates currentState;
     public GameObject cheese;
     public GameObject throwCheese;
+    public GameObject firstHit;
 
-    public float attackDistance = 15;
-    public float enemySpeed = 10;
+    public float attackDistance = 10;
+    public float enemySpeed = 9;
     public float attackRate = 3;
-    public int damageAmount = 20;
+    public int damageAmount = 10;
+
+    public static bool isHit;
+    public float hitDuration = 8;
+    public static bool isDead;
+
+    public AudioClip StompSFX;
+    public AudioClip regularAttackSFX;
+    public AudioClip ThrowSFX;
 
     NavMeshAgent agent;
     Animator anim;
     Vector3 nextDestination;
 
     float distanceToPlayer;
-    bool isDead;
     PlayerHealth playerHealth;
+    bool attacking;
 
     float elapsedTime = 0;
     float animTimer = 0;
+    float hitTimer = 0;
+    bool hitStart = false;
     bool animStart = false;
-    
+    public static bool turnOnFirstHit = false;
 
     // Start is called before the first frame update
     void Start()
@@ -50,40 +61,98 @@ public class Boss : MonoBehaviour
 
         currentState = FSMStates.Chase;
         isDead = false;
-
+        attacking = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        distanceToPlayer = Vector3.Distance(transform.position, player.transform.position);
-
-        switch (currentState)
+        if (!LevelManager.isGameOver)
         {
-            case FSMStates.Chase:
-                UpdateChaseState();
-                break;
-            case FSMStates.Attack:
-                UpdateAttackState();
-                break;
-            case FSMStates.Dead:
-                UpdateDeadState();
-                break;
+            distanceToPlayer = Vector3.Distance(transform.position, player.transform.position);
+
+            if (isDead)
+            {
+                currentState = FSMStates.Dead;
+            }
+
+            if (isHit)
+            {
+                cheese.SetActive(false);
+                currentState = FSMStates.Hit;
+                hitStart = true;
+            }
+
+            switch (currentState)
+            {
+                case FSMStates.Hit:
+                    UpdateHitState();
+                    break;
+                case FSMStates.Chase:
+                    UpdateChaseState();
+                    break;
+                case FSMStates.Attack:
+                    UpdateAttackState();
+                    break;
+                case FSMStates.Dead:
+                    UpdateDeadState();
+                    break;
+            }
+
+
+            elapsedTime += Time.deltaTime;
+
+
+            if (attacking)
+            {
+                Attack();
+                var animDuration = anim.GetCurrentAnimatorStateInfo(0).length;
+                HandleDamage(animDuration);
+            }
+            else
+            {
+                animStart = false;
+                animTimer = 0;
+            }
+
+            if (animStart)
+            {
+                animTimer += Time.deltaTime;
+            }
+
+            if (hitStart)
+            {
+                hitTimer += Time.deltaTime;
+            }
+        }
+    }
+
+    void UpdateHitState()
+    {
+        anim.SetInteger("animState", 6);
+        
+        if (turnOnFirstHit)
+        {
+            firstHit.SetActive(true);
+            turnOnFirstHit = false;
         }
 
-        elapsedTime += Time.deltaTime;
-        if (animStart)
+        if (hitTimer >= hitDuration)
         {
-            animTimer += Time.deltaTime;
+            hitStart = false;
+            hitTimer = 0;
+            isHit = false;
+            currentState = FSMStates.Chase;
         }
     }
 
     void UpdateChaseState()
     {
-        anim.SetInteger("animState", 1);
+        anim.SetInteger("animState", 2);
 
         agent.speed = enemySpeed;
         nextDestination = player.transform.position;
+        agent.stoppingDistance = attackDistance;
 
         if (distanceToPlayer <= attackDistance)
         {
@@ -96,56 +165,53 @@ public class Boss : MonoBehaviour
 
     void UpdateAttackState()
     {
+        nextDestination = player.transform.position;
+        agent.stoppingDistance = attackDistance;
+
         if (distanceToPlayer <= attackDistance)
         {
+            attacking = true;
             currentState = FSMStates.Attack;
         }
-        else if (distanceToPlayer > attackDistance)
+        else
         {
+            attacking = false;
+            cheese.SetActive(false);
             currentState = FSMStates.Chase;
         }
 
         FaceTarget(nextDestination);
-        Attack();
     }
 
     void UpdateDeadState()
     {
-        isDead = true;
+        FindObjectOfType<LevelManager>().LevelBeat();
+        Destroy(gameObject, 3);
     }
 
     void Attack()
     {
-        if (!isDead)
+        if (!isDead && !LevelManager.isGameOver)
         {
             if (elapsedTime >= attackRate)
             {
-                int attack = Random.Range(2, 5);
+                int attack = Random.Range(3, 6);
                 anim.SetInteger("animState", attack);
                 var animDuration = anim.GetCurrentAnimatorStateInfo(0).length;
-
-                if (animTimer >= animDuration)
-                {
-                    if (distanceToPlayer <= attackDistance)
-                    {
-                        playerHealth.TakeDamage(damageAmount);
-                    }
-                    animStart = false;
-                }
-
                 animStart = true;
+
                 if (attack == 1)
                 {
-                     //AudioSource.PlayClipAtPoint(regularAttackSFX, transform.position);
+                     AudioSource.PlayClipAtPoint(regularAttackSFX, transform.position);
 
                 }
                 else if (attack == 2)
                 {
-                    //AudioSource.PlayClipAtPoint(StompingSFX, transform.position);
+                    AudioSource.PlayClipAtPoint(StompSFX, transform.position);
                 }
                 else
                 {
-                    //AudioSource.PlayClipAtPoint(ThrowSFX, transform.position);
+                    AudioSource.PlayClipAtPoint(ThrowSFX, transform.position);
                     
                     cheese.SetActive(true);
 
@@ -154,6 +220,25 @@ public class Boss : MonoBehaviour
                 
                 elapsedTime = 0.0f;
             }
+        }
+    }
+
+    void HandleDamage(float animDuration)
+    {
+        bool dealDamage = false;
+        if (animTimer >= animDuration)
+        {
+            dealDamage = true;
+        }
+
+        if (dealDamage)
+        {
+            if (distanceToPlayer <= attackDistance)
+            {
+                playerHealth.TakeDamage(damageAmount);
+                animTimer = 0;
+            }
+            dealDamage = false;
         }
         
     }

@@ -53,7 +53,7 @@ public class ProjectileShoot : MonoBehaviour
 
         if (Physics.Raycast(transform.position, transform.forward, out hit, Mathf.Infinity))
         {
-            if (hit.collider.CompareTag("Window"))
+            if (hit.collider.CompareTag("Window") || hit.collider.CompareTag("BossHit"))
             {
                 reticleImage.color = Color.Lerp(reticleImage.color,
                     reticleWindowcolor, Time.deltaTime * 2);

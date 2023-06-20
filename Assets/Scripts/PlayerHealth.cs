@@ -10,12 +10,14 @@ public class PlayerHealth : MonoBehaviour
     public Slider healthSlider;
 
     int currentHealth;
+    bool isDead;
 
     // Start is called before the first frame update
     void Start()
     {
         currentHealth = startingHealth;
         healthSlider.value = currentHealth;
+        isDead = false;
     }
 
     public void TakeDamage(int damageAmount)
@@ -26,10 +28,15 @@ public class PlayerHealth : MonoBehaviour
             healthSlider.value = currentHealth;
         }
 
-        if (currentHealth <= 0)
+        if (!isDead) 
         {
-            PlayerDies();
+            if (currentHealth <= 0)
+            {
+                PlayerDies();
+                isDead = true;
+            }
         }
+        
     }
 
     void PlayerDies()
@@ -37,5 +44,6 @@ public class PlayerHealth : MonoBehaviour
         AudioSource.PlayClipAtPoint(deadSFX, transform.position);
 
         transform.Rotate(-90, 0, 0, Space.Self);
+        FindObjectOfType<LevelManager>().LevelLost();
     }
 }
