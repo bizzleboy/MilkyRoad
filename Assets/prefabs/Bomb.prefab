@@ -10123,6 +10123,8 @@ MonoBehaviour:
   stunDistance: 20
   Explosion: {fileID: 7824974720536480983, guid: d627ee7ad1ba4c34baba999beb6590f9, type: 3}
   player: {fileID: 0}
+  explosionTime: 8
+  explosionSFX: {fileID: 8300000, guid: f5279d35542311345a01ce1c7776e110, type: 3}
 --- !u!135 &7022388682414962685
 SphereCollider:
   m_ObjectHideFlags: 0

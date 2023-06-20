@@ -9,6 +9,7 @@ public class BossBomb : MonoBehaviour
     public GameObject Explosion;
     public Transform player;
     public float explosionTime = 8;
+    public AudioClip explosionSFX;
 
     float explodeTimer;
     float distanceToBoss;
@@ -37,18 +38,14 @@ public class BossBomb : MonoBehaviour
                 Boss.isHit = true;
                 Boss.turnOnFirstHit = true;
             }
-            gameObject.SetActive(false);
-            Instantiate(Explosion, transform.position, transform.rotation);
-            Destroy(gameObject, 2f);
+            Explode();
         }
 
         explodeTimer += Time.deltaTime;
 
         if (explodeTimer >= explosionTime)
         {
-            gameObject.SetActive(false);
-            Instantiate(Explosion, transform.position, transform.rotation);
-            Destroy(gameObject, 2f);
+            Explode();
         }
         
     }
@@ -59,5 +56,13 @@ public class BossBomb : MonoBehaviour
         {
             explode = true;
         }
+    }
+
+    private void Explode()
+    {
+        gameObject.SetActive(false);
+        Instantiate(Explosion, transform.position, transform.rotation);
+        AudioSource.PlayClipAtPoint(explosionSFX, transform.position);
+        Destroy(gameObject, 2f);
     }
 }

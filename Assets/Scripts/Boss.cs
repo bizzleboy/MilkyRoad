@@ -29,6 +29,10 @@ public class Boss : MonoBehaviour
     public float hitDuration = 8;
     public static bool isDead;
 
+    public AudioClip StompSFX;
+    public AudioClip regularAttackSFX;
+    public AudioClip ThrowSFX;
+
     NavMeshAgent agent;
     Animator anim;
     Vector3 nextDestination;
@@ -63,60 +67,63 @@ public class Boss : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        distanceToPlayer = Vector3.Distance(transform.position, player.transform.position);
-
-        if (isDead)
+        if (!LevelManager.isGameOver)
         {
-            currentState = FSMStates.Dead;
-        }
+            distanceToPlayer = Vector3.Distance(transform.position, player.transform.position);
 
-        if (isHit)
-        {
-            cheese.SetActive(false);
-            currentState = FSMStates.Hit;
-            hitStart = true;
-        }
+            if (isDead)
+            {
+                currentState = FSMStates.Dead;
+            }
 
-        switch (currentState)
-        {
-            case FSMStates.Hit:
-                UpdateHitState();
-                break;
-            case FSMStates.Chase:
-                UpdateChaseState();
-                break;
-            case FSMStates.Attack:
-                UpdateAttackState();
-                break;
-            case FSMStates.Dead:
-                UpdateDeadState();
-                break;
-        }
+            if (isHit)
+            {
+                cheese.SetActive(false);
+                currentState = FSMStates.Hit;
+                hitStart = true;
+            }
+
+            switch (currentState)
+            {
+                case FSMStates.Hit:
+                    UpdateHitState();
+                    break;
+                case FSMStates.Chase:
+                    UpdateChaseState();
+                    break;
+                case FSMStates.Attack:
+                    UpdateAttackState();
+                    break;
+                case FSMStates.Dead:
+                    UpdateDeadState();
+                    break;
+            }
 
 
-        elapsedTime += Time.deltaTime;
-        
+            elapsedTime += Time.deltaTime;
 
-        if (attacking)
-        {
-            Attack();
-            var animDuration = anim.GetCurrentAnimatorStateInfo(0).length;
-            HandleDamage(animDuration);
-        }
-        else
-        {
-            animStart = false;
-            animTimer = 0;
-        }
 
-        if (animStart)
-        {
-            animTimer += Time.deltaTime;
-        }
+            if (attacking)
+            {
+                Attack();
+                var animDuration = anim.GetCurrentAnimatorStateInfo(0).length;
+                HandleDamage(animDuration);
+            }
+            else
+            {
+                animStart = false;
+                animTimer = 0;
+            }
 
-        if (hitStart)
-        {
-            hitTimer += Time.deltaTime;
+            if (animStart)
+            {
+                animTimer += Time.deltaTime;
+            }
+
+            if (hitStart)
+            {
+                hitTimer += Time.deltaTime;
+            }
         }
     }
 
@@ -178,14 +185,13 @@ public class Boss : MonoBehaviour
 
     void UpdateDeadState()
     {
-        //anim.SetInteger("animState", 4);
-
+        FindObjectOfType<LevelManager>().LevelBeat();
         Destroy(gameObject, 3);
     }
 
     void Attack()
     {
-        if (!isDead)
+        if (!isDead && !LevelManager.isGameOver)
         {
             if (elapsedTime >= attackRate)
             {
@@ -196,16 +202,16 @@ public class Boss : MonoBehaviour
 
                 if (attack == 1)
                 {
-                     //AudioSource.PlayClipAtPoint(regularAttackSFX, transform.position);
+                     AudioSource.PlayClipAtPoint(regularAttackSFX, transform.position);
 
                 }
                 else if (attack == 2)
                 {
-                    //AudioSource.PlayClipAtPoint(StompingSFX, transform.position);
+                    AudioSource.PlayClipAtPoint(StompSFX, transform.position);
                 }
                 else
                 {
-                    //AudioSource.PlayClipAtPoint(ThrowSFX, transform.position);
+                    AudioSource.PlayClipAtPoint(ThrowSFX, transform.position);
                     
                     cheese.SetActive(true);
 

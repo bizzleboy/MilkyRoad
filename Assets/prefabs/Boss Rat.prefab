@@ -1163,6 +1163,9 @@ MonoBehaviour:
   attackRate: 4
   damageAmount: 5
   hitDuration: 8
+  StompSFX: {fileID: 8300000, guid: 852fb1e61d8d05c4991258f1be152552, type: 3}
+  regularAttackSFX: {fileID: 8300000, guid: ec6956da23386c740b6f6c1dc71a2df4, type: 3}
+  ThrowSFX: {fileID: 8300000, guid: 2eccb2bf91ce8cb4f8835ef355a2d054, type: 3}
 --- !u!114 &4150406429943095521
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1176,7 +1179,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startingHealth: 3
-  deadSFX: {fileID: 8300000, guid: 7e7e0275b7e378c44b843844814e9f59, type: 3}
+  deadSFX: {fileID: 8300000, guid: 383d7ef759df6be4c9306835072cec5f, type: 3}
   healthSlider: {fileID: 7472098667257075636}
   currentHealth: 0
 --- !u!1 &3785756385893900396

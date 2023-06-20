@@ -23,7 +23,7 @@ public class CheeseAttackBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!Boss.isHit)
+        if (!Boss.isHit && !LevelManager.isGameOver)
         {
             Rigidbody rb = GetComponent<Rigidbody>();
 
