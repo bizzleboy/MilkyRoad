@@ -7,6 +7,7 @@ public class ChaseStart : MonoBehaviour
     public GameObject boss;
     public GameObject player;
     public float speed = 1;
+    public float multiplier = 3;
 
     bool chasePlayer = false;
 
@@ -33,7 +34,7 @@ public class ChaseStart : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            speed = speed * 3;
+            speed = speed * multiplier;
             boss.GetComponent<Rigidbody>().useGravity = false;
             boss.GetComponent<BoxCollider>().isTrigger = true;
             chasePlayer = true;

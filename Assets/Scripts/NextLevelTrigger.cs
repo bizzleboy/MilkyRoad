@@ -10,24 +10,33 @@ public class NextLevelTrigger : MonoBehaviour
     public bool hasBigBuilding = false;
     public GameObject bigBuilding;
 
+    public bool nextIsFinalLevel = false;
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            if (hasBigBuilding)
+            if (nextIsFinalLevel)
             {
-                bigBuilding.SetActive(false);
+                FindAnyObjectByType<LevelManager>().LevelBeat();
             }
             else
             {
-                sceneChange.GetComponent<DeliveryManagement>().ActivateLight();
-            }
-            
-            other.GetComponent<PlayerBehavior>().ChangeToFPS();
+                if (hasBigBuilding)
+                {
+                    bigBuilding.SetActive(false);
+                }
+                else
+                {
+                    sceneChange.GetComponent<DeliveryManagement>().ActivateLight();
+                }
 
-            crosshair.SetActive(true);
-            sceneChange.SetActive(true);
-            gameObject.SetActive(false);
+                other.GetComponent<PlayerBehavior>().ChangeToFPS();
+
+                crosshair.SetActive(true);
+                sceneChange.SetActive(true);
+                gameObject.SetActive(false);
+            }
         }
     }
 }
