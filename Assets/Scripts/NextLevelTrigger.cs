@@ -20,7 +20,7 @@ public class NextLevelTrigger : MonoBehaviour
             }
             else
             {
-                GameObject.FindGameObjectWithTag("SceneChange").GetComponent<DeliveryManagement>().ActivateLight();
+                sceneChange.GetComponent<DeliveryManagement>().ActivateLight();
             }
             
             other.GetComponent<PlayerBehavior>().ChangeToFPS();
