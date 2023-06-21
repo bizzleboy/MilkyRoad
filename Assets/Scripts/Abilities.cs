@@ -14,6 +14,7 @@ public class Abilities : MonoBehaviour
     public float decreasePower = 0.2f;
     public float increasePower = 0.1f;
     public bool hasLight = false;
+    public float maxLightPower = 100;
 
     bool lightOn;
     bool lightCharging;
@@ -27,7 +28,7 @@ public class Abilities : MonoBehaviour
         lightOn = false;
         lightCharging = false;
         timer = 0;
-        lightPower = 100;
+        lightPower = maxLightPower;
     }
 
     // Update is called once per frame
@@ -87,9 +88,9 @@ public class Abilities : MonoBehaviour
         else
         {
             lightPower += increasePower;
-            if (lightPower >= 100)
+            if (lightPower >= maxLightPower)
             {
-                lightPower = 100;
+                lightPower = maxLightPower;
             }
         }
     }
