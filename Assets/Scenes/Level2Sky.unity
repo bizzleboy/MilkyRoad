@@ -3783,6 +3783,7 @@ MonoBehaviour:
   lightSlider: {fileID: 2071622344}
   decreasePower: 0.2
   increasePower: 0.1
+  hasLight: 1
 --- !u!114 &237885920
 MonoBehaviour:
   m_ObjectHideFlags: 0
