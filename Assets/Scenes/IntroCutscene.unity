@@ -562,7 +562,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86da1294b6207fe4d87e906c9053a40e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shotDuration: 2.5
+  shotDuration: 4
   shot1: {fileID: 1096723511}
   shot2: {fileID: 417766165}
   shot3: {fileID: 2138158707}
@@ -1008,7 +1008,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0

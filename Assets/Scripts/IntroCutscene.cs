@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class IntroCutscene : MonoBehaviour
 {
-    public float shotDuration = 2.5f;
+    public float shotDuration = 4f;
     public GameObject shot1;
     public GameObject shot2;
     public GameObject shot3;
