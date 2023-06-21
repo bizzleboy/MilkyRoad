@@ -4706,7 +4706,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 7bf4d09f74ff047ffa32b292fd34ddf6, type: 2}
+  - {fileID: 2100000, guid: f2dbcd61f254b1145a9d47eaf13b60e3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -14148,8 +14148,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 7bf4d09f74ff047ffa32b292fd34ddf6, type: 2}
-  - {fileID: 2100000, guid: 7bf4d09f74ff047ffa32b292fd34ddf6, type: 2}
+  - {fileID: 2100000, guid: f2dbcd61f254b1145a9d47eaf13b60e3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -15080,7 +15079,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 7bf4d09f74ff047ffa32b292fd34ddf6, type: 2}
+  - {fileID: 2100000, guid: f2dbcd61f254b1145a9d47eaf13b60e3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -16260,7 +16259,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneChange: {fileID: 348169271}
-  crosshair: {fileID: 849465936}
   hasBigBuilding: 1
   bigBuilding: {fileID: 362965039}
   nextIsFinalLevel: 0
@@ -40522,7 +40520,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 7bf4d09f74ff047ffa32b292fd34ddf6, type: 2}
+  - {fileID: 2100000, guid: f2dbcd61f254b1145a9d47eaf13b60e3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
