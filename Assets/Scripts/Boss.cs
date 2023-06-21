@@ -74,6 +74,7 @@ public class Boss : MonoBehaviour
             if (isDead)
             {
                 currentState = FSMStates.Dead;
+                hitTimer = hitDuration;
             }
 
             if (isHit)

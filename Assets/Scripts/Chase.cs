@@ -18,9 +18,8 @@ public class Chase : MonoBehaviour
     {
         if (BossAppear.startChase)
         {
-            Vector3 playerPosition = player.position;
             transform.LookAt(player);
-            transform.position = Vector3.MoveTowards(transform.position, playerPosition, speed * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
         }
     }
 }

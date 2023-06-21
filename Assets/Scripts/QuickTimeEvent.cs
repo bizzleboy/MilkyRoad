@@ -31,7 +31,6 @@ public class QuickTimeEvent : MonoBehaviour
         {
             if (other.gameObject.tag == "QTERat" && !eventTriggered)
             {
-                Debug.Log("meme");
                 playerMovement.canMove = false;
                 eventTriggered = true;
                 eventStartTime = Time.time;

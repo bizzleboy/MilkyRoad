@@ -33,24 +33,31 @@ public class PlayerBehavior : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Obstacle"))
+        if (!LevelManager.isGameOver)
         {
-            PlayerDies();
-            FindObjectOfType<LevelManager>().LevelLost();
+            if (collision.gameObject.CompareTag("Obstacle"))
+            {
+                PlayerDies();
+                FindObjectOfType<LevelManager>().LevelLost();
+            }
         }
+
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Obstacle"))
+        if (!LevelManager.isGameOver)
         {
-            PlayerDies();
-            FindObjectOfType<LevelManager>().LevelLost();
-        }
+            if (other.CompareTag("Obstacle"))
+            {
+                PlayerDies();
+                FindObjectOfType<LevelManager>().LevelLost();
+            }
 
-        if (other.CompareTag("CheeseAttack"))
-        {
-            GetComponent<PlayerHealth>().TakeDamage(5);
+            if (other.CompareTag("CheeseAttack"))
+            {
+                GetComponent<PlayerHealth>().TakeDamage(5);
+            }
         }
     }
 
