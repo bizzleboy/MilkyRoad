@@ -10,7 +10,9 @@ public class ScooterController : MonoBehaviour
     public float gravity = 9.8f;
     public float driftStrength = 20f;
     public float driftSlowDownFactor = 0.8f; // Represents how much to slow down when drifting. 0.8 means 80% of current speed.
-    public bool playerControl = true; // Add this
+    public bool playerControl = true; 
+    public float brakeDecelerationRate = 2f;
+
     public float qteSpeed = 1f; // Speed during Quick Time Event
 
     public bool canMove = true;
@@ -38,8 +40,9 @@ public class ScooterController : MonoBehaviour
     {
         if (!LevelManager.isGameOver)
         {
-            if (canMove) { 
-           
+            if (canMove)
+            {
+
                 float verticalInput = Input.GetAxis("Vertical");
                 float horizontalInput = Input.GetAxis("Horizontal");
 
@@ -75,10 +78,23 @@ public class ScooterController : MonoBehaviour
 
                 if (verticalInput != 0)
                 {
-                    speed += verticalInput * accelerationRate * Time.deltaTime;
-                    if (speed > maxSpeed && Time.time > boostEndTime)
+                    if (verticalInput > 0)
                     {
-                        speed = maxSpeed;
+                        // Acceleration when "W" is pressed
+                        speed += verticalInput * accelerationRate * Time.deltaTime;
+                        if (speed > maxSpeed && Time.time > boostEndTime)
+                        {
+                            speed = maxSpeed;
+                        }
+                    }
+                    else
+                    {
+                        // Deceleration when "S" is pressed
+                        speed += verticalInput * brakeDecelerationRate * Time.deltaTime;
+                        if (speed < 0)
+                        {
+                            speed = 0;
+                        }
                     }
                 }
                 else
@@ -119,8 +135,8 @@ public class ScooterController : MonoBehaviour
             }
 
         }
-
     }
+
 
     public void LaunchUpward(float power)
     {
