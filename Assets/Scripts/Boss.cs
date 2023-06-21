@@ -20,8 +20,8 @@ public class Boss : MonoBehaviour
     public GameObject throwCheese;
     public GameObject firstHit;
 
-    public float attackDistance = 10;
-    public float enemySpeed = 9;
+    public float attackDistance = 8;
+    public float enemySpeed = 8;
     public float attackRate = 3;
     public int damageAmount = 10;
 
