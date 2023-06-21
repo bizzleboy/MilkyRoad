@@ -5,7 +5,6 @@ using UnityEngine;
 public class NextLevelTrigger : MonoBehaviour
 {
     public GameObject sceneChange;
-    public GameObject crosshair;
 
     public bool hasBigBuilding = false;
     public GameObject bigBuilding;
@@ -33,7 +32,6 @@ public class NextLevelTrigger : MonoBehaviour
 
                 other.GetComponent<PlayerBehavior>().ChangeToFPS();
 
-                crosshair.SetActive(true);
                 sceneChange.SetActive(true);
                 gameObject.SetActive(false);
             }
