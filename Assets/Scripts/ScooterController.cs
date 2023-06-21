@@ -76,33 +76,39 @@ public class ScooterController : MonoBehaviour
                     }
                 }
 
-                if (verticalInput != 0)
+                if (verticalInput > 0) // Acceleration when "W" is pressed
                 {
-                    if (verticalInput > 0)
+                    speed += verticalInput * accelerationRate * Time.deltaTime;
+                    if (speed > maxSpeed && Time.time > boostEndTime)
                     {
-                        // Acceleration when "W" is pressed
-                        speed += verticalInput * accelerationRate * Time.deltaTime;
-                        if (speed > maxSpeed && Time.time > boostEndTime)
-                        {
-                            speed = maxSpeed;
-                        }
+                        speed = maxSpeed;
                     }
-                    else
+                }
+                else if (verticalInput < 0) // Deceleration when "S" is pressed or reversal if speed is already zero
+                {
+                    if (speed > 0) // If moving forward, decelerate
                     {
-                        // Deceleration when "S" is pressed
                         speed += verticalInput * brakeDecelerationRate * Time.deltaTime;
                         if (speed < 0)
                         {
                             speed = 0;
                         }
                     }
+                    else if (speed <= 0) // If not moving or moving backward, reverse
+                    {
+                        speed += verticalInput * accelerationRate * Time.deltaTime;
+                        if (speed < -maxSpeed)
+                        {
+                            speed = -maxSpeed;
+                        }
+                    }
                 }
-                else
+                else // Natural deceleration when no key is pressed
                 {
                     speed = Mathf.Lerp(speed, 0, Time.deltaTime * accelerationRate);
                 }
 
-                if (boostEndTime > 0f && Time.time > boostEndTime && speed > maxSpeed)
+                if (boostEndTime > 0f && Time.time > boostEndTime && Mathf.Abs(speed) > maxSpeed)
                 {
                     speed -= speedBoostAmount;
                     boostEndTime = 0f;
@@ -136,6 +142,8 @@ public class ScooterController : MonoBehaviour
 
         }
     }
+
+
 
 
     public void LaunchUpward(float power)
