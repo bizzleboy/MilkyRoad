@@ -4593,7 +4593,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1245636065
 Transform:
   m_ObjectHideFlags: 0
@@ -7231,7 +7231,9 @@ MonoBehaviour:
   honkSFX: {fileID: 8300000, guid: 93a145335caa1c6408a603336de877c1, type: 3}
   LigthSwitchSFX: {fileID: 8300000, guid: 3ffa9d151ea46f64196c452eb3a32338, type: 3}
   lights: {fileID: 2055327524}
-  enemy: {fileID: 0}
+  lightSlider: {fileID: 0}
+  decreasePower: 0.2
+  increasePower: 0.1
 --- !u!114 &1788454401
 MonoBehaviour:
   m_ObjectHideFlags: 0

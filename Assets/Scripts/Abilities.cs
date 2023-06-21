@@ -13,6 +13,7 @@ public class Abilities : MonoBehaviour
 
     public float decreasePower = 0.2f;
     public float increasePower = 0.1f;
+    public bool hasLight = false;
 
     bool lightOn;
     bool lightCharging;
@@ -32,26 +33,30 @@ public class Abilities : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        lightSlider.value = lightPower;
-
         if (!PlayerBehavior.fpsMode)
         {
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 AudioSource.PlayClipAtPoint(honkSFX, transform.position);
             }
-            if (Input.GetButtonDown("Fire1") || Input.GetKeyDown(KeyCode.J))
+            if (hasLight)
             {
-                AudioSource.PlayClipAtPoint(LigthSwitchSFX, transform.position);
-                SwitchLight();
+                if (Input.GetButtonDown("Fire1") || Input.GetKeyDown(KeyCode.J))
+                {
+                    AudioSource.PlayClipAtPoint(LigthSwitchSFX, transform.position);
+                    SwitchLight();
+                }
             }
+            
         }
 
+        if (hasLight)
+        {
+            lightSlider.value = lightPower;
+            HandleLightSlider();
 
-        HandleLightSlider();
-
-        HandleTimer();
-
+            HandleTimer();
+        }
     }
 
     void SwitchLight()
