@@ -9,9 +9,6 @@ EditorBuildSettings:
     path: Assets/Scenes/ShootingScene.unity
     guid: 02d73034eb220f545983b0ef3bb086bb
   - enabled: 1
-    path: Assets/Scenes/Level2Sky.unity
-    guid: abcb2ecb4a56547fbbb79865431dd90a
-  - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: 915fb41455bc4e149ae32db6fe16ce72
   - enabled: 1
@@ -21,8 +18,14 @@ EditorBuildSettings:
     path: Assets/Scenes/Level1.unity
     guid: e23c4d4559595464e8cd624e1ee45e35
   - enabled: 1
-    path: Assets/Scenes/Level2.unity
-    guid: 1ced7058bbb0d40c4a4f0443408cce87
+    path: Assets/Scenes/SecondCutscene.unity
+    guid: c381ab7f8716b63469df15ce06bf0823
+  - enabled: 1
+    path: Assets/Scenes/Level2Sky.unity
+    guid: abcb2ecb4a56547fbbb79865431dd90a
+  - enabled: 1
+    path: Assets/Scenes/ThirdCutscene.unity
+    guid: 8a0963211ae222349b9f13e2b768890a
   - enabled: 1
     path: Assets/Scenes/Level3.unity
     guid: 1d2593c52dbb646b99327f5458957c06
