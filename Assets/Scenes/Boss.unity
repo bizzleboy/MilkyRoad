@@ -2129,6 +2129,7 @@ MonoBehaviour:
   crosshair: {fileID: 1911897775}
   hasBigBuilding: 1
   bigBuilding: {fileID: 87574008}
+  nextIsFinalLevel: 0
 --- !u!1 &1762459501
 GameObject:
   m_ObjectHideFlags: 0
@@ -2644,7 +2645,7 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: 383d7ef759df6be4c9306835072cec5f, type: 3}
     - target: {fileID: 4150406429943095521, guid: efc5efaab1d4ff240a5859c81a76f5b9, type: 3}
       propertyPath: startingHealth
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4150406429943095522, guid: efc5efaab1d4ff240a5859c81a76f5b9, type: 3}
       propertyPath: StompSFX
