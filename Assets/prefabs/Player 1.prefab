@@ -141,7 +141,11 @@ MonoBehaviour:
   honkSFX: {fileID: 8300000, guid: 677630f49d8eaa645872f26280a10cce, type: 3}
   LigthSwitchSFX: {fileID: 0}
   lights: {fileID: 0}
-  enemy: {fileID: 0}
+  lightSlider: {fileID: 0}
+  decreasePower: 0.2
+  increasePower: 0.1
+  hasLight: 0
+  maxLightPower: 100
 --- !u!95 &3273354812481605098
 Animator:
   serializedVersion: 5
