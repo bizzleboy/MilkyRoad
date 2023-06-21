@@ -17,7 +17,6 @@ public class Abilities : MonoBehaviour
     public float maxLightPower = 100;
 
     bool lightOn;
-    bool lightCharging;
 
     float timer;
     float lightPower;
@@ -26,7 +25,6 @@ public class Abilities : MonoBehaviour
     private void Start()
     {
         lightOn = false;
-        lightCharging = false;
         timer = 0;
         lightPower = maxLightPower;
     }

@@ -28,26 +28,32 @@ public class BossBomb : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        distanceToBoss = Vector3.Distance(transform.position, boss.transform.position);
-        transform.LookAt(player);
-
-        if (explode)
+        if (!LevelManager.isGameOver)
         {
-            if (distanceToBoss <= stunDistance)
+            distanceToBoss = Vector3.Distance(transform.position, boss.transform.position);
+            transform.LookAt(player);
+
+            if (explode)
             {
-                Boss.isHit = true;
-                Boss.turnOnFirstHit = true;
+                if (distanceToBoss <= stunDistance)
+                {
+                    Boss.isHit = true;
+                    Boss.turnOnFirstHit = true;
+                }
+                Explode();
             }
-            Explode();
+
+            explodeTimer += Time.deltaTime;
+
+            if (explodeTimer >= explosionTime)
+            {
+                Explode();
+            }
         }
-
-        explodeTimer += Time.deltaTime;
-
-        if (explodeTimer >= explosionTime)
+        else
         {
-            Explode();
+            Destroy(gameObject);
         }
-        
     }
 
     private void OnTriggerEnter(Collider other)
