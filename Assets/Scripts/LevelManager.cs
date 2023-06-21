@@ -26,7 +26,9 @@ public class LevelManager : MonoBehaviour
         isGameOver = false;
         score = 0;
         levelTime = 0;
+        WindowHit.count = 0;
         SetTimerText();
+        HitHandler.currentHits = 0;
     }
 
     // Update is called once per frame

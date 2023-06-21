@@ -7,27 +7,36 @@ public class NextLevelTrigger : MonoBehaviour
     public GameObject sceneChange;
     public GameObject crosshair;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public bool hasBigBuilding = false;
+    public GameObject bigBuilding;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public bool nextIsFinalLevel = false;
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            other.GetComponent<PlayerBehavior>().ChangeToFPS();
+            if (nextIsFinalLevel)
+            {
+                FindAnyObjectByType<LevelManager>().LevelBeat();
+            }
+            else
+            {
+                if (hasBigBuilding)
+                {
+                    bigBuilding.SetActive(false);
+                }
+                else
+                {
+                    sceneChange.GetComponent<DeliveryManagement>().ActivateLight();
+                }
 
-            crosshair.SetActive(true);
-            sceneChange.SetActive(true);
-            GameObject.FindGameObjectWithTag("SceneChange").GetComponent<DeliveryManagement>().ActivateLight();
+                other.GetComponent<PlayerBehavior>().ChangeToFPS();
+
+                crosshair.SetActive(true);
+                sceneChange.SetActive(true);
+                gameObject.SetActive(false);
+            }
         }
     }
 }

@@ -4,13 +4,22 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - RampEnd
-  - Obstacle
-  - Pizza
+  - SceneChange
+  - Window
   - Ground
   - ProjecttileParent
-  - Window
-  - SceneChange
+  - StandRat
+  - Pizza
+  - CheeseAttack
+  - Cheese
+  - Obstacle
+  - Tutorial
+  - QTERat
+  - WanderPoint
+  - RampEnd
+  - Bomb
+  - Boss
+  - BossHit
   layers:
   - Default
   - TransparentFX

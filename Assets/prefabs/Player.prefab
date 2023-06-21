@@ -27,11 +27,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3292326450793029481}
   m_LocalRotation: {x: 0.2518648, y: -0.07082259, z: 0.018484978, w: 0.9649905}
-  m_LocalPosition: {x: -0.1, y: 0.73, z: -2.4}
+  m_LocalPosition: {x: -0.3844223, y: -0.024322271, z: -3.748622}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3292326452182237309}
+  m_Father: {fileID: 982718828387980718}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 29.256, y: -8.395, z: 0}
 --- !u!20 &3292326450793029477
@@ -132,7 +132,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 3292326450793029480}
+  - {fileID: 982718828387980718}
   - {fileID: 2104709132157537232}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -209,12 +209,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e20d06ea15c140838f8083645b9b4bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerModel: {fileID: 0}
   accelerationRate: 3
   maxSpeed: 20
   minSpeedForTurn: 0.5
   turnSpeed: 145
   gravity: 1
+  driftStrength: 20
+  driftSlowDownFactor: 0.8
   rampForceMultiplier: 5
+  driftBoostTime: 3
+  speedBoostAmount: 5
+  speedBoostDuration: 2
 --- !u!114 &8274157839757796044
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -228,6 +234,41 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   honkSFX: {fileID: 8300000, guid: 677630f49d8eaa645872f26280a10cce, type: 3}
+  LigthSwitchSFX: {fileID: 0}
+  lights: {fileID: 0}
+  enemy: {fileID: 0}
+--- !u!1 &7978818894490744042
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 982718828387980718}
+  m_Layer: 0
+  m_Name: CamAnim
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &982718828387980718
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7978818894490744042}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 3292326450793029480}
+  m_Father: {fileID: 3292326452182237309}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &982134450061132563
 PrefabInstance:
   m_ObjectHideFlags: 0

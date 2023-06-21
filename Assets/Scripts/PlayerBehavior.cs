@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class PlayerBehavior : MonoBehaviour
 {
@@ -12,9 +13,9 @@ public class PlayerBehavior : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        fpsMode = false;
         ground = GameObject.FindGameObjectWithTag("Ground").transform;
         animate = transform.GetChild(1).GetComponent<Animator>();
-        fpsMode = false;
     }
 
     // Update is called once per frame
@@ -32,11 +33,31 @@ public class PlayerBehavior : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        // Replace "Obstacle" with the tag of your obstacle objects
-        if (collision.gameObject.CompareTag("Obstacle"))
+        if (!LevelManager.isGameOver)
         {
-            PlayerDies();
-            FindObjectOfType<LevelManager>().LevelLost();
+            if (collision.gameObject.CompareTag("Obstacle"))
+            {
+                PlayerDies();
+                FindObjectOfType<LevelManager>().LevelLost();
+            }
+        }
+
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (!LevelManager.isGameOver)
+        {
+            if (other.CompareTag("Obstacle"))
+            {
+                PlayerDies();
+                FindObjectOfType<LevelManager>().LevelLost();
+            }
+
+            if (other.CompareTag("CheeseAttack"))
+            {
+                GetComponent<PlayerHealth>().TakeDamage(5);
+            }
         }
     }
 
@@ -50,7 +71,7 @@ public class PlayerBehavior : MonoBehaviour
         fpsMode = true;
     }
 
-    void PlayerDies()
+    public void PlayerDies()
     {
         animate.SetTrigger("pepperDies");
     }
