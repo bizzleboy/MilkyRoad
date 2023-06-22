@@ -6,51 +6,43 @@ using UnityEngine.UI;
 public class Tutorial2 : MonoBehaviour
 {
     public GameObject player;
-    public GameObject tutorial;
     public GameObject mainCamera;
-    public Text tutorialText;
-    public static bool triggered = false;
+    public GameObject scoreText;
+    public GameObject timerText;
 
-    void OnTriggerEnter(Collider other)
+    public static bool rulesShown = false;
+
+    void Start()
     {
-        if (other.CompareTag("Player") && !triggered)
+        if(!rulesShown)
         {
-            this.gameObject.GetComponent<BoxCollider>().enabled = false;
-            player.GetComponent<ScooterController>().enabled = false;
-            player.GetComponent<Abilities>().enabled = false;
-            mainCamera.GetComponent<MouseLook>().enabled = false;
-            tutorial.SetActive(true);
-
+            gameObject.SetActive(true);
+            Time.timeScale = 0;
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
 
-
-            if (tutorial.CompareTag("Tutorial"))
-            {
-                tutorialText.text = "1. Use WASD keys to drive Pepper's scooter" + "\n" +
-                                    "2. Avoid crashing into obstacles like rats and trash cans" + "\n" +
-                                    "3. Use Shift to drift \n" +
-                                    "3. If a sleeping dog is in your way press space to honk and wake it up" + "\n" +
-                                    "4. If a rat starts chasing you, left click to temporarily blind it";
-            }
-            else
-            {
-                tutorialText.text = " ";
-            }
-
-            triggered = true;
+            player.GetComponent<ScooterController>().enabled = false;
+            player.GetComponent<Abilities>().enabled = false;
+            mainCamera.GetComponent<MouseLook>().enabled = false;
         }
-        
+        else
+        {
+            gameObject.SetActive(false);
+            scoreText.SetActive(true);
+            timerText.SetActive(true);
+        }
     }
 
-    public void ButtonPressed()
+    public void PlayGame()
     {
+        Time.timeScale = 1;
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+
         player.GetComponent<ScooterController>().enabled = true;
         player.GetComponent<Abilities>().enabled = true;
         mainCamera.GetComponent<MouseLook>().enabled = true;
-        tutorial.SetActive(false);
 
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        rulesShown = true;
     }
 }
