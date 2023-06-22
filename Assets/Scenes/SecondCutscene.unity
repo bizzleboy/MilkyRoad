@@ -467,7 +467,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04b12c26ffaaf064da3836b71f70435e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shotDuration: 2.5
+  shotDuration: 4
   shot1: {fileID: 1096723511}
   shot2: {fileID: 417766165}
 --- !u!1 &1096723511
