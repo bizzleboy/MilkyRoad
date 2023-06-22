@@ -13801,10 +13801,12 @@ MonoBehaviour:
   m_Text: '* Don''t fall off the rooftops
 
     * If a rat enemy gets in your way,
-    click to blind it with your flashlight
+    left click to blind it with your flashlight
 
-    * If a pop up appears, rapidly hit
-    enter until Pepper does a trick'
+    * If a pop up appears, rapidly
+    hit enter until Pepper does a trick
+
+'
 --- !u!222 &778594881
 CanvasRenderer:
   m_ObjectHideFlags: 0
