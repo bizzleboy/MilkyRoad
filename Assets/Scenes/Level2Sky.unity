@@ -41388,6 +41388,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 151478702}
   player: {fileID: 237885918}
+  mainCamera: {fileID: 657922512}
 --- !u!4 &1824346275 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8971065027915649994, guid: c0cd83946b27e4d1e921a2bb0e7125bd, type: 3}
