@@ -23,7 +23,7 @@ RenderSettings:
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
-  m_AmbientIntensity: 2.06
+  m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
   m_SkyboxMaterial: {fileID: 2100000, guid: 6c154636a358e41b4bcc5d4158c4c529, type: 2}
@@ -1865,7 +1865,7 @@ MonoBehaviour:
   levelTime: 0
   gameOverSFX: {fileID: 8300000, guid: d05e9df306ee554418f277b8aeb9e3e2, type: 3}
   gameWonSFX: {fileID: 8300000, guid: 7e7e0275b7e378c44b843844814e9f59, type: 3}
-  nextLevel: 
+  nextLevel: EndCutscene
   gameText: {fileID: 332611787}
   timerText: {fileID: 499625022}
   scoreText: {fileID: 721209280}
