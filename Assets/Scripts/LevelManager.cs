@@ -29,6 +29,7 @@ public class LevelManager : MonoBehaviour
         WindowHit.count = 0;
         SetTimerText();
         HitHandler.currentHits = 0;
+        BossAppear.startChase = false;
     }
 
     // Update is called once per frame
