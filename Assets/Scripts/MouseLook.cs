@@ -16,6 +16,7 @@ public class MouseLook : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        mouseSensitivity = PlayerPrefs.GetFloat("mouseSensitivity", 50);
         if (!isMenu && !PauseMenu.isPaused)
         {
             playerBody = transform.parent.transform;
@@ -46,6 +47,7 @@ public class MouseLook : MonoBehaviour
         }
         sensitivitySlider.value = mouseSensitivity;
         sensitivityDisplay.text = mouseSensitivity.ToString("0.00");
+        PlayerPrefs.SetFloat("mouseSensitivity", mouseSensitivity);
     }
 
     public void moveToFPS()
