@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.35314125, g: 0.35347098, b: 0.32005343, a: 1}
+  m_IndirectSpecularColor: {r: 0.41595474, g: 0.4430482, b: 0.45758343, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -748,7 +748,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45cd97e9aeca92b43a2049cd90c9681e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mouseSensitivity: 100
+  isMenu: 0
+  sensitivitySlider: {fileID: 0}
+  sensitivityDisplay: {fileID: 0}
 --- !u!81 &488915613
 AudioListener:
   m_ObjectHideFlags: 0
@@ -1410,7 +1412,7 @@ MonoBehaviour:
   levelTime: 0
   gameOverSFX: {fileID: 8300000, guid: d05e9df306ee554418f277b8aeb9e3e2, type: 3}
   gameWonSFX: {fileID: 8300000, guid: 7e7e0275b7e378c44b843844814e9f59, type: 3}
-  nextLevel: 
+  nextLevel: EndCutscene
   gameText: {fileID: 332611787}
   timerText: {fileID: 499625022}
   scoreText: {fileID: 721209280}
@@ -1631,14 +1633,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1217606252}
-  m_LocalRotation: {x: 0.42495787, y: 0.0110586835, z: 0.9051307, w: -0.00519204}
-  m_LocalPosition: {x: 0, y: 3, z: 0}
+  m_LocalRotation: {x: 0.44578075, y: -0.06126451, z: 0.8926103, w: -0.027803915}
+  m_LocalPosition: {x: -108.1, y: 56.5, z: -81}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 181.4, y: -129.7, z: 0}
+  m_LocalEulerAnglesHint: {x: 175.148, y: -126.66901, z: 6.0059967}
 --- !u!1 &1239188770
 GameObject:
   m_ObjectHideFlags: 0
@@ -2126,7 +2128,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneChange: {fileID: 87574008}
-  crosshair: {fileID: 1911897775}
   hasBigBuilding: 1
   bigBuilding: {fileID: 87574008}
   nextIsFinalLevel: 0
