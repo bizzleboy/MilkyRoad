@@ -8,6 +8,7 @@ public class PauseMenu : MonoBehaviour
 public static bool isPaused = false;
 public GameObject pauseMenu;
 public GameObject player;
+public GameObject mainCamera;
 
     // Update is called once per frame
     void Update()
@@ -31,6 +32,7 @@ public GameObject player;
         Time.timeScale = 0f;
         pauseMenu.SetActive(true);
         player.GetComponent<Abilities>().enabled = false;
+        mainCamera.GetComponent<ProjectileShoot>().enabled = false;
 
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
@@ -42,6 +44,7 @@ public GameObject player;
         Time.timeScale = 1f;
         pauseMenu.SetActive(false);
         player.GetComponent<Abilities>().enabled = true;
+        mainCamera.GetComponent<ProjectileShoot>().enabled = true;
 
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
