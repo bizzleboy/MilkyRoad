@@ -7373,6 +7373,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 925498963}
   player: {fileID: 1788454399}
+  mainCamera: {fileID: 2134490560}
 --- !u!1001 &1512465116
 PrefabInstance:
   m_ObjectHideFlags: 0
