@@ -8,19 +8,21 @@ public class ShootingTutorial1 : MonoBehaviour
     public GameObject mainCamera;
     public GameObject scoreText;
     public GameObject timerText;
+    public GameObject shootingTutorial;
 
     void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            gameObject.SetActive(true);
+            shootingTutorial.SetActive(true);
             Time.timeScale = 0;
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
 
-            player.GetComponent<ScooterController>().enabled = false;
-            player.GetComponent<Abilities>().enabled = false;
+            //player.GetComponent<ScooterController>().enabled = false;
+            // player.GetComponent<Abilities>().enabled = false;
             mainCamera.GetComponent<MouseLook>().enabled = false;
+            mainCamera.GetComponent<ProjectileShoot>().enabled = false;
 
             scoreText.SetActive(false);
             timerText.SetActive(false);
@@ -33,8 +35,9 @@ public class ShootingTutorial1 : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
 
-        player.GetComponent<ScooterController>().enabled = true;
-        player.GetComponent<Abilities>().enabled = true;
+        //player.GetComponent<ScooterController>().enabled = true;
+        //player.GetComponent<Abilities>().enabled = true;
         mainCamera.GetComponent<MouseLook>().enabled = true;
+        mainCamera.GetComponent<ProjectileShoot>().enabled = true;
     }
 }
